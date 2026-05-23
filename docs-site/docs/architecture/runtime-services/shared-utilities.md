@@ -550,7 +550,7 @@ Server or tool environments may need an application-level polyfill or a differen
 
 # Related Articles
 
-- `4.3. ObjectPool and Pools`
-- `4.6. LifecycleTracker and TrackedSignal`
-- `3.1. Execution Initiators`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [4.3. ObjectPool and Pools](/architecture/runtime-services/object-pool-and-pools)
+- [4.6. LifecycleTracker and TrackedSignal](/architecture/runtime-services/lifecycle-tracker-and-tracked-signal)
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

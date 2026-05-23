@@ -1011,8 +1011,8 @@ This keeps architecture easier to reason about as projects grow.
 
 # Related Articles
 
-- `1.3. Entity and Component Model`
-- `1.4. EntityStorage and Component Filtering`
-- `4.1. DI Container`
-- `4.2. DI inside Systems and Pipelines`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [1.3. Entity and Component Model](/architecture/core-concepts/entity-and-component-model)
+- [1.4. EntityStorage and Component Filtering](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [4.1. DI Container](/architecture/runtime-services/di-container)
+- [4.2. DI inside Systems and Pipelines](/architecture/runtime-services/di-inside-systems-and-pipelines)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

@@ -572,9 +572,9 @@ This architecture intentionally prioritizes runtime clarity and composability ov
 
 # Related Articles
 
-- `2.2. Pipelines`
-- `2.3. Pipeline Composition`
-- `1.2. ECS in empr.es`
-- `1.3. Entity and Component Model`
-- `1.4. EntityStorage and Component Filtering`
-- `3.1. Execution Initiators`
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.3. Pipeline Composition](/architecture/execution/pipeline-composition)
+- [1.2. ECS in empr.es](/architecture/core-concepts/ecs-in-empr-es)
+- [1.3. Entity and Component Model](/architecture/core-concepts/entity-and-component-model)
+- [1.4. EntityStorage and Component Filtering](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)

@@ -266,6 +266,8 @@ The goal is to preserve explicit runtime flow while allowing a more object-orien
 
 ---
 
+<a id="renderer-agnostic-by-design"></a>
+
 # Renderer Agnostic by Design
 
 The `@empr/es` core package contains no dependency on:
@@ -351,13 +353,13 @@ This distinction matters because many design decisions inside the framework only
 
 # Related Articles
 
-- ECS in empr.es
-- Entity and Component Model
-- EntityStorage and Component Filtering
-- Systems
-- Pipelines
-- Signal and SignalService
-- FSM and Runtime Flow
-- ECS vs Component Driven
-- Renderer Agnostic Architecture
-- Official PixiJS Runtime (`@empr/es-lienzo`)
+- [ECS in empr.es](architecture/core-concepts/ecs-in-empr-es)
+- [Entity and Component Model](architecture/core-concepts/entity-and-component-model)
+- [EntityStorage and Component Filtering](architecture/core-concepts/entity-storage-and-component-filtering)
+- [Systems](architecture/execution/systems)
+- [Pipelines](architecture/execution/pipelines)
+- [Signal and SignalService](architecture/flow-control/signal-and-signalservice)
+- [FSM and Runtime Flow](#fsm-and-runtime-flow)
+- [ECS vs Component Driven](architecture/execution/ecs-vs-component-driven)
+- [Renderer Agnostic Architecture](#renderer-agnostic-by-design)
+- [Official PixiJS Runtime (`@empr/es-lienzo`)](#renderer-agnostic-by-design)

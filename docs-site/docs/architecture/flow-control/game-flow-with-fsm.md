@@ -777,8 +777,8 @@ This approach may initially feel stricter than callback-driven gameplay architec
 
 # Related Articles
 
-- `3.1. Execution Initiators`
-- `3.2. Signal and SignalService`
-- `2.2. Pipelines`
-- `3.7. FSM + Pipeline + Signal Architecture`
-- `4.6. LifecycleTracker and TrackedSignal`
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.2. Signal and SignalService](/architecture/flow-control/signal-and-signalservice)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)
+- [4.6. LifecycleTracker and TrackedSignal](/architecture/runtime-services/lifecycle-tracker-and-tracked-signal)

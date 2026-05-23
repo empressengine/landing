@@ -721,10 +721,10 @@ MVC is only a learning bridge.
 
 # Related Articles
 
-- `1.2. ECS in empr.es`
-- `1.3. Entity and Component Model`
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `2.3. Pipeline Composition`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [1.2. ECS in empr.es](/architecture/core-concepts/ecs-in-empr-es)
+- [1.3. Entity and Component Model](/architecture/core-concepts/entity-and-component-model)
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.3. Pipeline Composition](/architecture/execution/pipeline-composition)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

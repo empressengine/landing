@@ -729,7 +729,7 @@ Without coupling entity lifetime directly to object allocation.
 
 # Related Articles
 
-- `1.3. Entity and Component Model`
-- `1.4. EntityStorage and Component Filtering`
-- `4.3. ObjectPool and Pools`
-- `2.1. Systems`
+- [1.3. Entity and Component Model](/architecture/core-concepts/entity-and-component-model)
+- [1.4. EntityStorage and Component Filtering](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [4.3. ObjectPool and Pools](/architecture/runtime-services/object-pool-and-pools)
+- [2.1. Systems](/architecture/execution/systems)

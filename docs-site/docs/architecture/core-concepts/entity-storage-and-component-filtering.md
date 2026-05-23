@@ -717,10 +717,10 @@ The goal is to make large gameplay runtimes understandable, inspectable and main
 
 # Related Articles
 
-- What is empr.es?
-- ECS in empr.es
-- Entity and Component Model
-- Systems
-- Pipelines
-- ObjectPool and Pools
-- LifecycleTracker and TrackedSignal
+- [What is empr.es?](/)
+- [ECS in empr.es](/architecture/core-concepts/ecs-in-empr-es)
+- [Entity and Component Model](/architecture/core-concepts/entity-and-component-model)
+- [Systems](/architecture/execution/systems)
+- [Pipelines](/architecture/execution/pipelines)
+- [ObjectPool and Pools](/architecture/runtime-services/object-pool-and-pools)
+- [LifecycleTracker and TrackedSignal](/architecture/runtime-services/lifecycle-tracker-and-tracked-signal)

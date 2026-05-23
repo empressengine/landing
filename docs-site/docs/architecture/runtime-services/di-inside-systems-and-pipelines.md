@@ -735,8 +735,8 @@ This keeps execution understandable and deterministic.
 
 # Related Articles
 
-- `4.1. DI Container`
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `3.1. Execution Initiators`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [4.1. DI Container](/architecture/runtime-services/di-container)
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

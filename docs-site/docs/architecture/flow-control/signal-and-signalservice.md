@@ -606,9 +606,9 @@ This distinction is one of the most important design principles behind runtime f
 
 # Related Articles
 
-- `3.1. Execution Initiators`
-- `3.3. Signal Ownership`
-- `3.4. Custom Signal Owners`
-- `3.5. Listening to Update Loop via SignalService`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.3. Signal Ownership](/architecture/flow-control/signal-ownership)
+- [3.4. Custom Signal Owners](/architecture/flow-control/signal-ownership)
+- [3.5. Listening to Update Loop via SignalService](/architecture/flow-control/listening-to-update-loop-via-signalservice)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

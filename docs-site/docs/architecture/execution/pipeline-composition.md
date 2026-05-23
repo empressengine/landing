@@ -643,8 +643,8 @@ Execution structure should remain inspectable directly from Pipeline definitions
 
 # Related Articles
 
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `2.4. Modifying Existing Pipelines`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.4. Modifying Existing Pipelines](/architecture/execution/modifying-existing-pipelines)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

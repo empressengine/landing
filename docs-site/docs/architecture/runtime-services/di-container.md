@@ -1530,10 +1530,10 @@ This keeps runtime code modular, testable, and easier to evolve over long-runnin
 
 # Related Articles
 
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `3.1. Execution Initiators`
-- `3.7. FSM + Pipeline + Signal Architecture`
-- `4.2. EntityStorage`
-- `4.3. SignalService`
-- `4.4. FSMService`
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)
+- [4.2. EntityStorage](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [4.3. SignalService](/architecture/flow-control/signal-and-signalservice)
+- [4.4. FSMService](/architecture/flow-control/game-flow-with-fsm)

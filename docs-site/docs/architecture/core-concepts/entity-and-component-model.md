@@ -611,10 +611,10 @@ It is trying to make ECS practical for production browser game architecture.
 
 # Related Articles
 
-- What is empr.es?
-- ECS in empr.es
-- EntityStorage and Component Filtering
-- Systems
-- Pipelines
-- ObjectPool and Pools
-- LifecycleTracker and TrackedSignal
+- [What is empr.es?](/)
+- [ECS in empr.es](/architecture/core-concepts/ecs-in-empr-es)
+- [EntityStorage and Component Filtering](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [Systems](/architecture/execution/systems)
+- [Pipelines](/architecture/execution/pipelines)
+- [ObjectPool and Pools](/architecture/runtime-services/object-pool-and-pools)
+- [LifecycleTracker and TrackedSignal](/architecture/runtime-services/lifecycle-tracker-and-tracked-signal)

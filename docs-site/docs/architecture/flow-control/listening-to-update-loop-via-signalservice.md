@@ -657,9 +657,9 @@ Update execution exists as part of architecture — not as a side effect of rend
 
 # Related Articles
 
-- `3.1. Execution Initiators`
-- `3.2. Signal and SignalService`
-- `2.2. Pipelines`
-- `2.1. Systems`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.2. Signal and SignalService](/architecture/flow-control/signal-and-signalservice)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.1. Systems](/architecture/execution/systems)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

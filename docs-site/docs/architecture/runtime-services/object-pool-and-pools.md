@@ -758,7 +758,7 @@ This keeps pooling generic, predictable and renderer-independent.
 
 # Related Articles
 
-- `1.4. EntityStorage and Component Filtering`
-- `2.1. Systems`
-- `4.1. DI Container`
-- `4.2. DI inside Systems and Pipelines`
+- [1.4. EntityStorage and Component Filtering](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [2.1. Systems](/architecture/execution/systems)
+- [4.1. DI Container](/architecture/runtime-services/di-container)
+- [4.2. DI inside Systems and Pipelines](/architecture/runtime-services/di-inside-systems-and-pipelines)

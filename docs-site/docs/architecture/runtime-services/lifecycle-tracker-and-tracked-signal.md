@@ -857,8 +857,8 @@ Especially in long-running game sessions.
 
 # Related Articles
 
-- `4.5. Reactive Store`
-- `4.3. ObjectPool and Pools`
-- `4.4. Entity Lifecycle and Pool-aware Storage`
-- `2.1. Systems`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [4.5. Reactive Store](/architecture/runtime-services/reactive-store)
+- [4.3. ObjectPool and Pools](/architecture/runtime-services/object-pool-and-pools)
+- [4.4. Entity Lifecycle and Pool-aware Storage](/architecture/runtime-services/entity-lifecycle-and-pool-aware-storage)
+- [2.1. Systems](/architecture/execution/systems)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

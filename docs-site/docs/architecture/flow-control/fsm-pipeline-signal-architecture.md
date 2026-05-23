@@ -844,9 +844,9 @@ This is the core runtime flow architecture of `empr.es`.
 
 # Related Articles
 
-- `3.1. Execution Initiators`
-- `3.2. Signal and SignalService`
-- `3.5. Listening to Update Loop via SignalService`
-- `3.6. Game Flow with FSM`
-- `2.2. Pipelines`
-- `2.1. Systems`
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.2. Signal and SignalService](/architecture/flow-control/signal-and-signalservice)
+- [3.5. Listening to Update Loop via SignalService](/architecture/flow-control/listening-to-update-loop-via-signalservice)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.1. Systems](/architecture/execution/systems)

@@ -737,8 +737,8 @@ This design intentionally favors runtime clarity and observability.
 
 # Related Articles
 
-- `2.1. Systems`
-- `2.3. Pipeline Composition`
-- `3.1. Execution Initiators`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [2.1. Systems](/architecture/execution/systems)
+- [2.3. Pipeline Composition](/architecture/execution/pipeline-composition)
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

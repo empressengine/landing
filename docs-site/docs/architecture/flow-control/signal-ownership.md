@@ -495,8 +495,8 @@ This approach may initially feel stricter than lightweight event systems, but it
 
 # Related Articles
 
-- `3.2. Signal and SignalService`
-- `3.4. Custom Signal Owners`
-- `4.6. LifecycleTracker and TrackedSignal`
-- `4.4. Entity Lifecycle and Pool-aware Storage`
-- `3.6. Game Flow with FSM`
+- [3.2. Signal and SignalService](/architecture/flow-control/signal-and-signalservice)
+- [3.4. Custom Signal Owners](/architecture/flow-control/signal-ownership)
+- [4.6. LifecycleTracker and TrackedSignal](/architecture/runtime-services/lifecycle-tracker-and-tracked-signal)
+- [4.4. Entity Lifecycle and Pool-aware Storage](/architecture/runtime-services/entity-lifecycle-and-pool-aware-storage)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)

@@ -1015,14 +1015,14 @@ The important design decision is that the core combat mechanic already has a cle
 
 ## Related articles
 
-- `1.1. What is empr.es?`
-- `1.2. ECS in empr.es`
-- `1.3. Entity and Component Model`
-- `1.4. EntityStorage and Component Filtering`
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `2.3. Pipeline Composition`
-- `3.2. Signal and SignalService`
-- `3.7. FSM + Pipeline + Signal Architecture`
-- `4.1. DI Container`
-- `4.2. DI inside Systems and Pipelines`
+- [1.1. What is empr.es?](/)
+- [1.2. ECS in empr.es](/architecture/core-concepts/ecs-in-empr-es)
+- [1.3. Entity and Component Model](/architecture/core-concepts/entity-and-component-model)
+- [1.4. EntityStorage and Component Filtering](/architecture/core-concepts/entity-storage-and-component-filtering)
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.3. Pipeline Composition](/architecture/execution/pipeline-composition)
+- [3.2. Signal and SignalService](/architecture/flow-control/signal-and-signalservice)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)
+- [4.1. DI Container](/architecture/runtime-services/di-container)
+- [4.2. DI inside Systems and Pipelines](/architecture/runtime-services/di-inside-systems-and-pipelines)

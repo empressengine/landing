@@ -773,9 +773,9 @@ runtime behavior should remain visible, explicit and controlled.
 
 # Related Articles
 
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `2.7. ECS vs Component Driven`
-- `3.1. Execution Initiators`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [2.7. ECS vs Component Driven](/architecture/execution/ecs-vs-component-driven)
+- [3.1. Execution Initiators](/architecture/flow-control/execution-initiators)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)

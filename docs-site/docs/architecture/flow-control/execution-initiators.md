@@ -547,10 +547,10 @@ Finally, initiator metadata is only useful when teams treat it as part of the ar
 
 ## Related articles
 
-- `2.1. Systems`
-- `2.2. Pipelines`
-- `3.2. Signal and SignalService`
-- `3.5. Listening to Update Loop via SignalService`
-- `3.6. Game Flow with FSM`
-- `3.7. FSM + Pipeline + Signal Architecture`
-- `4.2. DI inside Systems and Pipelines`
+- [2.1. Systems](/architecture/execution/systems)
+- [2.2. Pipelines](/architecture/execution/pipelines)
+- [3.2. Signal and SignalService](/architecture/flow-control/signal-and-signalservice)
+- [3.5. Listening to Update Loop via SignalService](/architecture/flow-control/listening-to-update-loop-via-signalservice)
+- [3.6. Game Flow with FSM](/architecture/flow-control/game-flow-with-fsm)
+- [3.7. FSM + Pipeline + Signal Architecture](/architecture/flow-control/fsm-pipeline-signal-architecture)
+- [4.2. DI inside Systems and Pipelines](/architecture/runtime-services/di-inside-systems-and-pipelines)
