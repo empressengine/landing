@@ -10,3 +10,4 @@ allowBuilds:
 
 overrides:
   vite: 6.3.5
+  webpackbar: ^7.0.0
