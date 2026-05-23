@@ -4,8 +4,11 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "dev:docs": "pnpm --filter docs-site start",
+    "build:landing": "vite build",
+    "build:docs": "pnpm --filter docs-site build",
+    "build": "pnpm build:landing && pnpm build:docs && node scripts/merge-dist.mjs"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
@@ -80,11 +83,6 @@
     },
     "react-dom": {
       "optional": true
-    }
-  },
-  "pnpm": {
-    "overrides": {
-      "vite": "6.3.5"
     }
   }
 }
