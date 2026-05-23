@@ -27,9 +27,13 @@ const config: Config = {
   ],
   themeConfig: {
     navbar: {
-      title: 'empr.es',
+      logo: {
+        alt: 'empr.es',
+        src: 'img/logo.svg',
+        href: 'https://www.empr.es',
+        target: '_self',
+      },
       items: [
-        { href: '/', label: 'Home', position: 'left' },
         {
           type: 'docSidebar',
           sidebarId: 'architectureSidebar',

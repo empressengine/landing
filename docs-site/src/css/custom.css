@@ -1,3 +1,8 @@
+.navbar__logo img {
+  height: 1.75rem;
+  width: auto;
+}
+
 :root {
   --ifm-color-primary: #e30049;
   --ifm-color-primary-dark: #cc0042;
