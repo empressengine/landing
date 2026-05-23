@@ -18,7 +18,7 @@ export function Header() {
             <Button
               size="sm"
               variant="outline"
-              className="hidden sm:flex border-white/20 bg-white/5 hover:bg-[#E30049]/20 hover:border-[#E30049] text-white"
+              className="hidden sm:flex border-white/20 bg-white/5 hover:bg-[#E30049]/20 hover:border-[#E30049] text-white hover:text-white"
               asChild
             >
               <a href="/docs/">

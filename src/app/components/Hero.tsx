@@ -74,7 +74,7 @@ export function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/20 bg-white/5 hover:bg-[#E30049]/20 hover:border-[#E30049] text-white px-8 h-12"
+                className="border-white/20 bg-white/5 hover:bg-[#E30049]/20 hover:border-[#E30049] text-white hover:text-white px-8 h-12"
                 asChild
               >
                 <a href="/docs/">
