@@ -77,7 +77,7 @@ export function Hero() {
                 className="border-white/20 bg-white/5 hover:bg-[#E30049]/20 hover:border-[#E30049] text-white px-8 h-12"
                 asChild
               >
-                <a href="https://empr.es/docs/index.html">
+                <a href="/docs/">
                   <Book className="mr-2 w-4 h-4" />
                   Explore Architecture
                 </a>
