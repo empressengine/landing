@@ -21,7 +21,7 @@ export function Header() {
               className="hidden sm:flex border-white/20 bg-white/5 hover:bg-[#E30049]/20 hover:border-[#E30049] text-white"
               asChild
             >
-              <a href="https://empr.es/docs/index.html">
+              <a href="/docs/">
                 Explore Architecture
               </a>
             </Button>

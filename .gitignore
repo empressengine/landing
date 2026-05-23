@@ -1,5 +1,8 @@
 node_modules
 dist
+docs-site/.docusaurus
+docs-site/build
+docs-site/node_modules
 .nx
 coverage
 *.local
