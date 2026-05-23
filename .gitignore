@@ -1,0 +1,12 @@
+node_modules
+dist
+.nx
+coverage
+*.local
+libs/empr/es/dist
+libs/empr/es-lienzo/dist
+libs/empr/es-sistema/dist
+libs/empr/es-componente/dist
+.npmrc
+.agents
+skills-lock.json
