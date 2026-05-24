@@ -236,10 +236,10 @@ export function ExecutionModels() {
           >
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8">
               {/* Header */}
-              <div className="mb-6 space-y-3">
-                <h3 className="text-2xl text-white tracking-tight">Pipelines</h3>
-                <div className="inline-block px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md">
-                  <span className="text-xs text-[#E30049]/80 tracking-wide">ECS execution model</span>
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <h3 className="text-2xl text-white tracking-tight shrink-0">Pipelines</h3>
+                <div className="shrink-0 px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md">
+                  <span className="text-xs text-[#E30049]/80 tracking-wide whitespace-nowrap">ECS execution model</span>
                 </div>
               </div>
 
@@ -306,10 +306,10 @@ export function ExecutionModels() {
           >
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8">
               {/* Header */}
-              <div className="mb-6 space-y-3">
-                <h3 className="text-2xl text-white tracking-tight">Orchestrators</h3>
-                <div className="inline-block px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md">
-                  <span className="text-xs text-[#E30049]/80 tracking-wide">Component Driven execution model</span>
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <h3 className="text-2xl text-white tracking-tight shrink-0">Orchestrators</h3>
+                <div className="shrink-0 px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md">
+                  <span className="text-xs text-[#E30049]/80 tracking-wide whitespace-nowrap">Component Driven execution model</span>
                 </div>
               </div>
 
