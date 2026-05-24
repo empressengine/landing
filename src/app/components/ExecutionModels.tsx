@@ -38,10 +38,10 @@ export function ExecutionModels() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Split Layout (mirrors WhySection composition, SVG on the right) */}
-        <div className="mb-16 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+        <div className="mb-8 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -62,6 +62,16 @@ export function ExecutionModels() {
               empr.es provides two execution models for two different ways of thinking about game logic:
               Pipelines for ECS projects and Orchestrators for Component Driven projects.
             </p>
+
+            <h4 className="text-xl text-white tracking-tight">
+              Same core, <span className="text-[#E30049]">different execution strategy</span>.
+            </h4>
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-2xl mx-auto">
+              Both models work with the same empr.es foundation: entities · components · dependency injection · FSM · signals · lifecycle tracking · renderer-independent logic.
+            </p>
+
+            
           </motion.div>
 
           {/* Right: Animated Technical SVG — 2× footprint, same stroke weights as before */}
@@ -250,7 +260,7 @@ export function ExecutionModels() {
               </p>
 
               {/* Execution Flow */}
-              <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
+              {/* <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
                 <div className="text-xs text-white/40 tracking-wider uppercase mb-4">Example flow</div>
                 <div className="space-y-2">
                   {pipelineSteps.map((step, i) => (
@@ -268,7 +278,7 @@ export function ExecutionModels() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Use cases */}
               <div className="space-y-3">
@@ -320,7 +330,7 @@ export function ExecutionModels() {
               </p>
 
               {/* Execution Flow */}
-              <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
+              {/* <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
                 <div className="text-xs text-white/40 tracking-wider uppercase mb-4">Example flow</div>
                 <div className="space-y-2">
                   {orchestratorSteps.map((step, i) => (
@@ -338,7 +348,7 @@ export function ExecutionModels() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Use cases */}
               <div className="space-y-3">
@@ -359,7 +369,7 @@ export function ExecutionModels() {
         </div>
 
         {/* Bottom Shared Foundation */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -376,10 +386,8 @@ export function ExecutionModels() {
             </p>
           </div>
 
-          {/* Divider */}
           <div className="h-px bg-white/10" />
 
-          {/* Decision Cards */}
           <div className="grid md:grid-cols-2 gap-px bg-white/5">
             <div className="p-6 bg-black space-y-2">
               <h5 className="text-base text-white font-medium tracking-tight">
@@ -399,7 +407,7 @@ export function ExecutionModels() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
