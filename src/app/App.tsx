@@ -30,7 +30,7 @@ export default function App() {
         <RendererAgnostic />
         <PixiJSRuntime />
         <BuiltForProduction />
-        <Ecosystem />
+        {/* <Ecosystem /> */}
         <UseCases />
         <DocsTransparency />
         <Roadmap />
