@@ -41,12 +41,12 @@ export function Hero() {
             className="space-y-8"
           >
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#E30049]/30 bg-[#E30049]/5 rounded-full">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#E30049]/30 bg-[#E30049]/5 rounded-full">
               <div className="w-1.5 h-1.5 rounded-full bg-[#E30049] animate-pulse" />
               <span className="text-sm text-white/70 tracking-wide">
                 Modular TypeScript Framework for Browser Games
               </span>
-            </div>
+            </div> */}
 
             {/* Headline */}
             <h1 className="text-5xl lg:text-7xl leading-[1.1] tracking-tight text-white">
@@ -88,7 +88,7 @@ export function Hero() {
             </div>
 
             {/* Feature badges */}
-            <div className="flex flex-wrap gap-2 pt-4">
+            {/* <div className="flex flex-wrap gap-2 pt-4">
               {badges.map((badge, i) => (
                 <motion.div
                   key={badge}
@@ -99,20 +99,20 @@ export function Hero() {
                   <FeatureBadge>{badge}</FeatureBadge>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right: Runtime visualization */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
-          >
-            <div className="relative border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-lg overflow-hidden">
+          > */}
+            <div className=" overflow-hidden">
               <RuntimePanel />
             </div>
-          </motion.div>
+          {/* </motion.div> */}
         </div>
       </div>
     </section>
