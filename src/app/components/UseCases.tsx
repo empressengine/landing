@@ -66,37 +66,10 @@ export function UseCases() {
     <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Left-aligned Intro + Right SVG */}
-        <div className="mb-16 grid lg:grid-cols-[1fr_350px] gap-12 items-center">
-          {/* Left: Intro Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
-              Use Cases
-            </h2>
-
-            <p className="text-base text-white/80 leading-relaxed max-w-2xl">
-              empr.es is designed for complex browser games and simulations where architecture, execution control and long-term maintainability matter.
-            </p>
-
-            <p className="text-sm text-white/50 leading-relaxed max-w-2xl">
-              It can be used as a full game architecture layer, a reusable runtime foundation, a server-side simulation core or a base for internal development tools.
-            </p>
-          </motion.div>
+        <div className="mb-16 grid lg:grid-cols-[1fr_750px] gap-48 items-center">
 
           {/* Right: Animated Use-Case Map */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 350 320">
+          <svg className="w-full h-full" viewBox="0 0 350 320">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="350" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <circle cx="175" cy="160" r="100" stroke="white" strokeOpacity="0.02" strokeWidth="1" fill="none" />
@@ -221,7 +194,28 @@ export function UseCases() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
               />
             </svg>
+          {/* Left: Intro Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
+              Use Cases
+            </h2>
+
+            <p className="text-base text-white/80 leading-relaxed max-w-2xl">
+              empr.es is designed for complex browser games and simulations where architecture, execution control and long-term maintainability matter.
+            </p>
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-2xl">
+              It can be used as a full game architecture layer, a reusable runtime foundation, a server-side simulation core or a base for internal development tools.
+            </p>
           </motion.div>
+
+          
         </div>
 
         {/* Bottom: Use Case Board - 2 rows */}
