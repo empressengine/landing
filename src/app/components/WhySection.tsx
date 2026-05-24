@@ -31,7 +31,7 @@ const problemSolutionPairs = [
 
 export function WhySection() {
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header with visual accent */}
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
