@@ -30,18 +30,18 @@ export function FlowControl() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Intro + Animated FSM Diagram */}
-        <div className="mb-16 grid lg:grid-cols-[400px_1fr] gap-12 items-center">
+        <div className="mb-0 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           {/* Left: Animated State Machine Diagram */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          >
+            className="relative hidden h-[480px] w-full max-w-[600px] shrink-0 lg:block"
+          > */}
             <svg className="w-full h-full" viewBox="0 0 400 320">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="400" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -224,7 +224,7 @@ export function FlowControl() {
                 />
               </motion.circle>
             </svg>
-          </motion.div>
+          {/* </motion.div> */}
 
           {/* Right: Intro Text */}
           <motion.div
@@ -232,7 +232,7 @@ export function FlowControl() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 text-left"
+            className="w-full space-y-6 text-left lg:max-w-2xl lg:pl-4"
           >
             <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
               FSM, Events and<br />Lifecycle Control
