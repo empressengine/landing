@@ -6,6 +6,7 @@
  *   node scripts/copy-features-docs.mjs           # all packages
  *   node scripts/copy-features-docs.mjs es-sistema   # one package
  *   node scripts/copy-features-docs.mjs es-componente
+ *   node scripts/copy-features-docs.mjs es-lienzo
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -46,6 +47,32 @@ const PACKAGES = [
     destDir: path.join(DEST_ROOT, 'es-componente'),
     title: '@empr/es-componente',
     layers: {},
+  },
+  {
+    id: 'es-lienzo',
+    srcDir: path.join(EMPR_LIBS, 'es-lienzo'),
+    destDir: path.join(DEST_ROOT, 'es-lienzo'),
+    title: '@empr/es-lienzo',
+    layers: {
+      shared: ['ref'],
+      core: ['entity', 'object-pool', 'update-loop'],
+      features: [
+        'assets-loader',
+        'assets-storage',
+        'scene',
+        'tree-builder',
+        'view',
+      ],
+      widgets: [
+        'interaction-service',
+        'layers-service',
+        'particle-service',
+        'pixi-pools',
+        'prefab-service',
+        'timer',
+      ],
+      bootstrap: ['empr'],
+    },
   },
 ];
 

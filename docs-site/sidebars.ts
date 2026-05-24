@@ -173,6 +173,79 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [],
     },
+    {
+      type: 'category',
+      label: '@empr/es-lienzo',
+      link: {
+        type: 'doc',
+        id: 'features/es-lienzo/index',
+      },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'shared',
+          link: {
+            type: 'doc',
+            id: 'features/es-lienzo/shared/index',
+          },
+          items: ['features/es-lienzo/shared/ref'],
+        },
+        {
+          type: 'category',
+          label: 'core',
+          link: {
+            type: 'doc',
+            id: 'features/es-lienzo/core/index',
+          },
+          items: [
+            'features/es-lienzo/core/entity',
+            'features/es-lienzo/core/object-pool',
+            'features/es-lienzo/core/update-loop',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          link: {
+            type: 'doc',
+            id: 'features/es-lienzo/features/index',
+          },
+          items: [
+            'features/es-lienzo/features/assets-loader',
+            'features/es-lienzo/features/assets-storage',
+            'features/es-lienzo/features/scene',
+            'features/es-lienzo/features/tree-builder',
+            'features/es-lienzo/features/view',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'widgets',
+          link: {
+            type: 'doc',
+            id: 'features/es-lienzo/widgets/index',
+          },
+          items: [
+            'features/es-lienzo/widgets/interaction-service',
+            'features/es-lienzo/widgets/layers-service',
+            'features/es-lienzo/widgets/particle-service',
+            'features/es-lienzo/widgets/pixi-pools',
+            'features/es-lienzo/widgets/prefab-service',
+            'features/es-lienzo/widgets/timer',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'bootstrap',
+          link: {
+            type: 'doc',
+            id: 'features/es-lienzo/bootstrap/index',
+          },
+          items: ['features/es-lienzo/bootstrap/empr'],
+        },
+      ],
+    },
   ],
 };
 
