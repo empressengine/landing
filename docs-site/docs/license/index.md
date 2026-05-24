@@ -33,4 +33,4 @@ THIS SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND.
 
 To obtain a commercial license or written permission, contact:
 
-**empressengine@gmail.com**
+**info@empr.es**
