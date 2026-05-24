@@ -40,15 +40,15 @@ export function ExecutionModels() {
   return (
     <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
       <div className="relative z-10 max-w-[1600px] mx-auto">
-        {/* Header - Split Layout */}
-        <div className="mb-16 grid lg:grid-cols-[1fr_300px] gap-12 items-center">
+        {/* Header - Split Layout (mirrors WhySection composition, SVG on the right) */}
+        <div className="mb-16 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="w-full space-y-6 lg:max-w-2xl"
           >
             <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
               Pipelines vs Orchestrators
@@ -64,27 +64,27 @@ export function ExecutionModels() {
             </p>
           </motion.div>
 
-          {/* Right: Animated Technical SVG */}
-          <motion.div
+          {/* Right: Animated Technical SVG — 2× footprint, same stroke weights as before */}
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[280px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 300 280">
+            className="relative hidden h-[640px] w-full max-w-[720px] shrink-0 lg:block"
+          > */}
+            <svg className="h-full w-full" viewBox="60 112 480 328">
               {/* Background guide grid */}
-              <line x1="0" y1="70" x2="300" y2="70" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
-              <line x1="0" y1="140" x2="300" y2="140" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
-              <line x1="0" y1="210" x2="300" y2="210" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
+              <line x1="0" y1="140" x2="600" y2="140" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
+              <line x1="0" y1="280" x2="600" y2="280" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
+              <line x1="0" y1="420" x2="600" y2="420" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
 
               {/* Input node */}
-              <circle cx="50" cy="140" r="6" fill="#E30049" fillOpacity="0.6" />
-              <circle cx="50" cy="140" r="16" stroke="#E30049" strokeWidth="1" strokeOpacity="0.3" fill="none" />
+              <circle cx="133" cy="280" r="6" fill="#E30049" fillOpacity="0.6" />
+              <circle cx="133" cy="280" r="16" stroke="#E30049" strokeWidth="1" strokeOpacity="0.3" fill="none" />
 
               {/* Branching paths */}
               <motion.path
-                d="M 66 140 L 120 70"
+                d="M 132 280 L 240 140"
                 stroke="white"
                 strokeWidth="1"
                 strokeOpacity="0.4"
@@ -94,7 +94,7 @@ export function ExecutionModels() {
                 transition={{ duration: 1.5, ease: "easeOut" }}
               />
               <motion.path
-                d="M 66 140 L 120 140"
+                d="M 132 280 L 240 280"
                 stroke="white"
                 strokeWidth="1"
                 strokeOpacity="0.4"
@@ -104,7 +104,7 @@ export function ExecutionModels() {
                 transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
               />
               <motion.path
-                d="M 66 140 L 120 210"
+                d="M 132 280 L 240 420"
                 stroke="white"
                 strokeWidth="1"
                 strokeOpacity="0.4"
@@ -116,7 +116,8 @@ export function ExecutionModels() {
 
               {/* Flow nodes */}
               <motion.circle
-                cx="120" cy="70"
+                cx="240"
+                cy="140"
                 r="4"
                 fill="white"
                 fillOpacity="0.4"
@@ -124,7 +125,8 @@ export function ExecutionModels() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.circle
-                cx="120" cy="140"
+                cx="240"
+                cy="280"
                 r="4"
                 fill="white"
                 fillOpacity="0.4"
@@ -132,7 +134,8 @@ export function ExecutionModels() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               />
               <motion.circle
-                cx="120" cy="210"
+                cx="240"
+                cy="420"
                 r="4"
                 fill="white"
                 fillOpacity="0.4"
@@ -142,7 +145,7 @@ export function ExecutionModels() {
 
               {/* Convergence paths */}
               <motion.path
-                d="M 136 70 L 250 140"
+                d="M 272 140 L 500 280"
                 stroke="#E30049"
                 strokeWidth="1"
                 strokeOpacity="0.4"
@@ -151,7 +154,7 @@ export function ExecutionModels() {
                 transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
               />
               <motion.path
-                d="M 136 140 L 250 140"
+                d="M 272 280 L 500 280"
                 stroke="#E30049"
                 strokeWidth="1"
                 strokeOpacity="0.4"
@@ -160,7 +163,7 @@ export function ExecutionModels() {
                 transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
               />
               <motion.path
-                d="M 136 210 L 250 140"
+                d="M 272 420 L 500 280"
                 stroke="#E30049"
                 strokeWidth="1"
                 strokeOpacity="0.4"
@@ -171,42 +174,45 @@ export function ExecutionModels() {
 
               {/* Output node */}
               <motion.circle
-                cx="250" cy="140"
+                cx="500"
+                cy="280"
                 r="8"
                 fill="#E30049"
                 fillOpacity="0.7"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               />
-              <circle cx="250" cy="140" r="18" stroke="white" strokeWidth="1" strokeOpacity="0.2" fill="none" />
+              <circle cx="500" cy="280" r="18" stroke="white" strokeWidth="1" strokeOpacity="0.2" fill="none" />
 
               {/* Signal pulses */}
               <motion.circle
-                cx="50" cy="140"
+                cx="133"
+                cy="280"
                 r="3"
                 fill="#E30049"
                 fillOpacity="0.8"
                 animate={{
-                  cx: [50, 120, 250],
-                  cy: [140, 70, 140],
+                  cx: [133, 240, 500],
+                  cy: [280, 140, 280],
                   opacity: [0.8, 0.6, 0]
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2 }}
               />
               <motion.circle
-                cx="50" cy="140"
+                cx="133"
+                cy="280"
                 r="3"
                 fill="#E30049"
                 fillOpacity="0.8"
                 animate={{
-                  cx: [50, 120, 250],
-                  cy: [140, 140, 140],
+                  cx: [133, 240, 500],
+                  cy: [280, 280, 280],
                   opacity: [0.8, 0.6, 0]
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2.8 }}
               />
             </svg>
-          </motion.div>
+          {/* </motion.div> */}
         </div>
 
         {/* Execution Panels */}
