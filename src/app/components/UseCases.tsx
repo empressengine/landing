@@ -63,7 +63,7 @@ export function UseCases() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Left-aligned Intro + Right SVG */}
         <div className="mb-16 grid lg:grid-cols-[1fr_750px] gap-48 items-center">

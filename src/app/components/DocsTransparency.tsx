@@ -29,7 +29,7 @@ export function DocsTransparency() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
         <div className="mb-16 grid lg:grid-cols-[340px_1fr] gap-12 items-center">
