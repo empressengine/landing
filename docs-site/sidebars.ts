@@ -65,6 +65,81 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+  featuresSidebar: [
+    {
+      type: 'category',
+      label: '@empr/es',
+      link: {
+        type: 'doc',
+        id: 'features/index',
+      },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'shared',
+          link: {
+            type: 'doc',
+            id: 'features/shared/index',
+          },
+          items: [
+            'features/shared/deferred-promise',
+            'features/shared/object-pool',
+            'features/shared/prng',
+            'features/shared/signal',
+            'features/shared/utils',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'core',
+          link: {
+            type: 'doc',
+            id: 'features/core/index',
+          },
+          items: [
+            'features/core/component',
+            'features/core/dependency',
+            'features/core/entity',
+            'features/core/filtered',
+            'features/core/store',
+            'features/core/update-loop',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          link: {
+            type: 'doc',
+            id: 'features/features/index',
+          },
+          items: ['features/features/fsm', 'features/features/signal-service'],
+        },
+        {
+          type: 'category',
+          label: 'widgets',
+          link: {
+            type: 'doc',
+            id: 'features/widgets/index',
+          },
+          items: [
+            'features/widgets/entity-storage',
+            'features/widgets/lifecycle',
+            'features/widgets/pools',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'bootstrap',
+          link: {
+            type: 'doc',
+            id: 'features/bootstrap/index',
+          },
+          items: ['features/bootstrap/empr'],
+        },
+      ],
+    },
+  ],
 };
 
 export default sidebars;
