@@ -52,6 +52,18 @@ const config: Config = {
           position: 'left',
           label: 'Features',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'apiSidebar',
+          position: 'left',
+          label: 'API',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'licenseSidebar',
+          position: 'left',
+          label: 'License',
+        },
       ],
     },
     footer: {

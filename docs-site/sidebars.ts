@@ -247,6 +247,8 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+  apiSidebar: ['api/index'],
+  licenseSidebar: ['license/index'],
 };
 
 export default sidebars;
