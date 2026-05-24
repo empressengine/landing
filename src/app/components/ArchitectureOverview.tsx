@@ -89,17 +89,17 @@ export function ArchitectureOverview() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative"
         >
-          <div className="flex items-center justify-center gap-4 py-8 px-6 border border-white/10 bg-gradient-to-r from-white/[0.02] via-white/[0.04] to-white/[0.02] backdrop-blur-sm rounded-lg">
-            <div className="flex items-center gap-4">
-              <div className="px-6 py-3 border border-white/20 bg-black/40 rounded-md">
+          <div className="flex items-center justify-center gap-4 py-8 px-4 border border-white/10 bg-gradient-to-r from-white/[0.02] via-white/[0.04] to-white/[0.02] backdrop-blur-sm rounded-lg sm:px-6">
+            <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row">
+              <div className="w-full max-w-60 px-4 py-3 text-center border border-white/20 bg-black/40 rounded-md sm:w-auto sm:max-w-none sm:px-6">
                 <span className="text-sm text-white tracking-wide">Core Runtime</span>
               </div>
-              <ArrowRight className="w-5 h-5 text-[#E30049]" />
-              <div className="px-6 py-3 border border-white/20 bg-black/40 rounded-md">
+              <ArrowRight className="h-5 w-5 rotate-90 text-[#E30049] sm:rotate-0" />
+              <div className="w-full max-w-60 px-4 py-3 text-center border border-white/20 bg-black/40 rounded-md sm:w-auto sm:max-w-none sm:px-6">
                 <span className="text-sm text-white tracking-wide">Execution Stack</span>
               </div>
-              <ArrowRight className="w-5 h-5 text-[#E30049]" />
-              <div className="px-6 py-3 border border-white/20 bg-black/40 rounded-md">
+              <ArrowRight className="h-5 w-5 rotate-90 text-[#E30049] sm:rotate-0" />
+              <div className="w-full max-w-60 px-4 py-3 text-center border border-white/20 bg-black/40 rounded-md sm:w-auto sm:max-w-none sm:px-6">
                 <span className="text-sm text-white tracking-wide">Renderer Integration</span>
               </div>
             </div>

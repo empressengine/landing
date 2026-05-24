@@ -73,7 +73,7 @@ export function ArchitectureChoice() {
             </div>
 
             {/* Connector lines - branching structure */}
-            <svg className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] h-16 pointer-events-none" viewBox="0 0 600 64">
+            <svg className="absolute top-full left-1/2 h-16 w-[min(600px,calc(100vw-2rem))] -translate-x-1/2 pointer-events-none" viewBox="0 0 600 64">
               {/* Center vertical line */}
               <line x1="300" y1="0" x2="300" y2="32" stroke="white" strokeOpacity="0.15" strokeWidth="1" />
               {/* Split to left */}
