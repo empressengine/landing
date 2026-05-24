@@ -34,9 +34,9 @@ export function ArchitectureChoice() {
             <span className="text-[#E30049]">ECS</span> or <span className="text-[#E30049]">Component Driven</span>
           </h2>
 
-          {/* <p className="text-lg text-white/70 tracking-tight">
+          <p className="text-lg text-white/70 tracking-tight">
             Every game team has its own way of thinking about architecture.
-          </p> */}
+          </p>
 
           <p className="text-sm text-white/50 leading-relaxed max-w-2xl mx-auto">
             Some projects need strict data-oriented execution with systems, filters and explicit pipelines.
@@ -46,35 +46,36 @@ export function ArchitectureChoice() {
         </motion.div>
 
         {/* Shared Core Runtime Panel */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative mb-16"
-        >
-          <div className="relative mx-auto max-w-xl">
-            <div className="border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm rounded-lg p-6 text-center">
-              <div className="text-xs text-[#E30049]/70 tracking-wider uppercase mb-3">Same Core Runtime</div>
+          className="relative mb-0"
+        > */}
+          {/* <div className="relative mx-auto max-w-xl pb-8"> */}
+            {/* <div className="border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm rounded-lg p-6 text-center"> */}
+              {/* <div className="text-xs text-[#E30049]/70 tracking-wider uppercase mb-3">Same Core Runtime</div> */}
               {/* <div className="text-sm text-white/60 leading-relaxed">
                 Entities · Components · DI · Store · FSM · Signals · Lifecycle
               </div> */}
-              <div className="text-sm text-white/60 leading-relaxed">
+              {/* <div className="text-sm text-white/60 leading-relaxed">
                 Every game team has its own way of thinking about architecture.
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             {/* Connector lines - branching structure */}
-            <svg className="absolute top-full left-1/2 h-16 w-[min(600px,calc(100vw-2rem))] -translate-x-1/2 pointer-events-none" viewBox="0 0 600 64">
-              {/* Center vertical line */}
-              <line x1="300" y1="0" x2="300" y2="32" stroke="white" strokeOpacity="0.15" strokeWidth="1" />
-              {/* Split to left */}
-              <path d="M 300 32 Q 300 40, 150 48" stroke="#E30049" strokeOpacity="0.3" strokeWidth="1" fill="none" />
-              {/* Split to right */}
-              <path d="M 300 32 Q 300 40, 450 48" stroke="#E30049" strokeOpacity="0.3" strokeWidth="1" fill="none" />
-            </svg>
-          </div>
-        </motion.div>
+            {/* <svg
+              className="pointer-events-none absolute top-full left-1/2 h-8 w-[min(1600px,calc(100vw-3rem))] -translate-x-1/2 -translate-y-3 overflow-visible"
+              viewBox="0 -12 1600 44"
+              preserveAspectRatio="none"
+            >
+              <line x1="800" y1="-10" x2="800" y2="14" stroke="white" strokeOpacity="0.15" strokeWidth="1" />
+              <path d="M 800 14 Q 800 22, 392 30" stroke="#E30049" strokeOpacity="0.3" strokeWidth="1" fill="none" />
+              <path d="M 800 14 Q 800 22, 1208 30" stroke="#E30049" strokeOpacity="0.3" strokeWidth="1" fill="none" />
+            </svg> */}
+          {/* </div> */}
+        {/* </motion.div> */}
 
         {/* Architecture Cards */}
         <div className="grid lg:grid-cols-2 gap-8">
@@ -89,7 +90,7 @@ export function ArchitectureChoice() {
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8 hover:border-white/20 transition-all duration-300">
               {/* Header */}
               <div className="mb-5 space-y-3">
-                {/* <h3 className="text-2xl text-white tracking-tight">ECS Architecture</h3> */}
+                <h3 className="text-2xl text-white tracking-tight">ECS Architecture</h3>
                 {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Systems · Filters · Pipelines</span>
                 </div> */}
@@ -135,7 +136,7 @@ export function ArchitectureChoice() {
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8 hover:border-white/20 transition-all duration-300">
               {/* Header */}
               <div className="mb-5 space-y-3">
-                {/* <h3 className="text-2xl text-white tracking-tight">Component Driven Architecture</h3> */}
+                <h3 className="text-2xl text-white tracking-tight">Component Driven Architecture</h3>
                 {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Scene Components · Orchestrators · Services</span>
                 </div> */}
