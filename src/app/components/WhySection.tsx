@@ -280,7 +280,7 @@ export function WhySection() {
                 empr.es keeps data, behavior, execution and rendering separate, with a renderer-agnostic core and
                 explicit flow through FSMs, signals and lifecycle ownership. Teams can choose ECS pipelines or
                 Component Driven orchestrators, rely on object pooling and lifecycle tracking by design, and run the
-                same core in the browser, on the server, in tests and in tools—without maintaining parallel
+                same core in the browser, on the server, in tests and in tools - without maintaining parallel
                 implementations.
               </p>
             </div>
