@@ -31,7 +31,7 @@ export function PixiJSRuntime() {
     <section className="relative px-6 lg:px-12 py-24 border-t">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
-        <div className="mb-16 grid lg:grid-cols-[750px_1fr] gap-12 items-center">
+        <div className="mb-16 grid lg:grid-cols-[750px_1fr] gap-48 items-center">
           {/* Right: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
