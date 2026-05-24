@@ -163,6 +163,16 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: '@empr/es-componente',
+      link: {
+        type: 'doc',
+        id: 'features/es-componente/index',
+      },
+      collapsed: false,
+      items: [],
+    },
   ],
 };
 

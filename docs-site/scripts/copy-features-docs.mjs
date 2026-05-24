@@ -4,7 +4,8 @@
  *
  * Usage:
  *   node scripts/copy-features-docs.mjs           # all packages
- *   node scripts/copy-features-docs.mjs es-sistema # one package
+ *   node scripts/copy-features-docs.mjs es-sistema   # one package
+ *   node scripts/copy-features-docs.mjs es-componente
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,6 +40,13 @@ const PACKAGES = [
       features: ['composer', 'executor'],
     },
   },
+  {
+    id: 'es-componente',
+    srcDir: path.join(EMPR_LIBS, 'es-componente'),
+    destDir: path.join(DEST_ROOT, 'es-componente'),
+    title: '@empr/es-componente',
+    layers: {},
+  },
 ];
 
 /** @param {string} body */
@@ -46,6 +54,14 @@ function fixLinks(body) {
   return body
     .replace(/\[`(@empr\/es)`\]\(\.\.\/es\/README\.md\)/g, '[@empr/es](../)')
     .replace(/\[`(@empr\/es)`\]\(\.\.\/\.\.\/es\/README\.md\)/g, '[@empr/es](../../)')
+    .replace(
+      /\[`(@empr\/es-sistema)`\]\(\.\.\/es-sistema\/README\.md\)/g,
+      '[@empr/es-sistema](../es-sistema/)',
+    )
+    .replace(
+      /\[`(@empr\/es-componente)`\]\(\.\.\/es-componente\/README\.md\)/g,
+      '[@empr/es-componente](../es-componente/)',
+    )
     .replace(
       /\[`(@empr\/es-[^`]+)`\]\(\.\.\/[^)]+\/README\.md\)/g,
       '`$1`',
