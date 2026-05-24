@@ -5,10 +5,6 @@ title: "@empr/es-componente"
 
 # @empr/es-componente
 
-![version](https://img.shields.io/badge/version-0.9.0-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.6%2B-3178c6?logo=typescript&logoColor=white)
-![license](https://img.shields.io/badge/license-Proprietary-lightgrey)
-
 **Component-driven execution stack for [@empr/es](../)** — alternative to [@empr/es-sistema](../es-sistema/).
 
 Swap packages at the application layer: **never** stack `es-sistema` and `es-componente` together. Both satisfy the same `ExecutionRegistry` contract consumed by `FSMService`, `SignalService`, and (with typings) `InteractionService`.

@@ -5,10 +5,6 @@ title: "@empr/es-sistema"
 
 # @empr/es-sistema
 
-![version](https://img.shields.io/badge/version-0.9.0-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.6%2B-3178c6?logo=typescript&logoColor=white)
-![license](https://img.shields.io/badge/license-Proprietary-lightgrey)
-
 **Default ECS execution stack for [@empr/es](../)** — `PipelineComposer`, `Executor`, `System` / `SystemProps`, and bootstrap wiring (`useECSBackend`).
 
 This package does **not** replace the ECS kernel (entities, components, storage still come from `@empr/es`). It adds the **pipeline runtime** and a registry adapter so `FSMService`, `SignalService`, and `@empr/es-lienzo`'s `InteractionService` can share one `ExecutionRegistry`.

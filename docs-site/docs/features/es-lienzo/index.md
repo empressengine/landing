@@ -5,11 +5,6 @@ title: "@empr/es-lienzo"
 
 # es-lienzo
 
-![version](https://img.shields.io/badge/version-0.9.2-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.6%2B-3178c6?logo=typescript&logoColor=white)
-![PixiJS](https://img.shields.io/badge/PixiJS-7.x-e72264?logo=pixijs&logoColor=white)
-![license](https://img.shields.io/badge/license-Proprietary-lightgrey)
-
 **A high-performance PixiJS renderer integration for `@empr/es` — pair it with [@empr/es-sistema](../es-sistema/) (default ECS pipelines) or [@empr/es-componente](../es-componente/) (component-driven orchestration).**
 
 ---
@@ -219,56 +214,6 @@ How does `es-lienzo` stack up against other popular JS game development tools?
 1.  **The "Adult" Approach**: Unlike Phaser or Kaboom, which prioritize getting something on screen quickly at the cost of structure, `es-lienzo` enforces a separation of concerns that scales to 100k+ lines of code without becoming spaghetti.
 2.  **Time Travel**: By decoupling logic from the browser's `requestAnimationFrame`, you get frame-perfect replays and debugging tools (DVR) out of the box.
 3.  **Modern DX**: Writing UI with `TreeBuilder` feels like writing React/Vue, but with the performance of WebGL.
-
----
-
-## Changelog
-
-### 0.9.2
-
-#### `SpineService` redesign — fluent builder API for Spine animation chains
-
-Full rewrite of the `spine-service` module with a new two-phase API and clean SRP separation:
-
-**`SpineChain`** — two distinct phases: **build** (`.add()`, `.onChainComplete()`) and **runtime** (`.play()`, `.pause()`, `.resume()`, `.stop()`, `.multiplyTimeScale()`). Per-step configuration via `StepBuilder` callback replaces the flat options object.
-
-**`StepBuilder`** — fluent sub-builder passed into `.add(spine, name, (step) => { ... })`. Configures `timeScale`, `loop`, event listeners (`onStart`, `onComplete`, `onInterrupt`, `onEnd`, `onDispose`, `onEvent`), and skin application (`withSkin`). All `.on*()` methods support optional `Ref<Disposable>` for manual unsubscription.
-
-**`SpineChainListener`** (internal) — extracted `IAnimationStateListener` implementation. Created fresh per step, routes Spine events to per-step callbacks and resolves `DeferredPromise` on completion.
-
-**`SpineService`** — slimmed to registry + tick driver + bulk operations. Per-name proxy methods (`get`, `pause`, `resume`, `stop`, `multiplyTimeScale`) removed — consumers call methods directly on the `SpineChain` reference.
-
-**`SpineUtils`** — `setSkin()` removed (absorbed by `StepBuilder.withSkin()`). Error messages fixed. Slot validation added to `findSlotByName`.
-
-**Breaking changes:** Full API surface replacement. `ISpineChainOptions` and `ISpineChainItem` replaced by `ISpineStep`, `ISpineStepListeners`, `ISpineListenerEntry<T>`. Owner tracking moved into `SpineChain` constructor (no external `setOwnerTracking`).
-
-### 0.9.1
-
-#### `PixiObjectPool` and `PixiPools` — object pooling for PixiJS entities
-
-Two new classes provide a complete, GC-friendly pooling stack for `PixiEntity` instances:
-
-**`PixiObjectPool`** (`core/object-pool`) — extends the framework-agnostic `ObjectPool<T>` with renderer-specific lifecycle hooks:
-- `release` detaches the entity from its PixiJS parent `Container` before calling the base reset, eliminating one-frame render artefacts.
-- `acquire` re-registers the entity in `EntityStorage` via DI (`EntityStorage.acquireEntity`), making it immediately visible to all live ECS queries.
-
-**`PixiPools`** (`widgets/pixi-pools`) — a DI-injectable registry of `PixiObjectPool` instances keyed by `PoolKey` (`string | number | symbol`). Registered globally by `EmprLienzo` during bootstrap, so any system can retrieve a pre-warmed pool by key without holding a direct reference.
-
-#### `PixiEntity.removeChild`
-
-`PixiEntity` now overrides `removeChild(entity)` to mirror the ECS hierarchy detach in the PixiJS scene graph: after `super.removeChild` updates the ECS tree and dispatches `OnEntityRemoveChildSignal`, the underlying `Container.removeChild` removes the visual node. Both trees stay permanently in sync on attach (`addChild`) and on detach (`removeChild`).
-
-#### `TreeBuilder` — proxy entity, `OnViewRemovedSignal`, two-tier lifecycle hooks
-
-Three related changes make `TreeBuilder` pool-transparent:
-
-- **Proxy entity throughout** — `storage.addEntity(entity)` is now cast to `PixiEntity` and used as the proxy for `addChild`, `ref`, `refCollection`, and child creation. This ensures all component mutations go through `ProxyEntity` interception and `EntityIndexator` stays consistent.
-- **`OnViewRemovedSignal`** — a new signal dispatched when a container fires its PixiJS `removed` event (detached from parent without being destroyed).
-- **Two-tier lifecycle hooks** wired on every created `Container`:
-  - `destroy` → `storage.removeEntity` + `OnViewDestroyedSignal` — permanent removal.
-  - `removed` → `storage.releaseEntity` + `OnViewRemovedSignal` — non-destructive release; entity instance preserved and invisible to ECS queries until re-acquired.
-
-  This means `PixiObjectPool.release` triggers the `removed` hook automatically when it detaches the container from the scene graph — without any explicit pool code inside `TreeBuilder`.
 
 ---
 
