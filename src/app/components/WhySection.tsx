@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
 
 const problemSolutionPairs = [
   {
@@ -33,46 +32,19 @@ export function WhySection() {
     <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header with visual accent */}
-        <div className="mb-12 grid lg:grid-cols-[1fr_300px] gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-4"
-          >
-            <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
-              Why empr<span className="text-[#E30049]">.</span>es?
-            </h2>
-
-            <div className="space-y-1">
-              <h3 className="text-xl lg:text-2xl text-white tracking-tight">
-                Rendering is only one part of a game.
-              </h3>
-              <h3 className="text-xl lg:text-2xl text-white tracking-tight">
-                empr.es provides the <span className="text-[#E30049]">missing architectural layer</span>.
-              </h3>
-            </div>
-
-            <p className="text-sm text-white/50 leading-relaxed max-w-2xl pt-2">
-              As browser games grow, teams need more than a renderer. They need clear ownership of data and logic,
-              explicit execution flow, safe lifecycle management, reusable services, predictable state and the freedom
-              to run game logic outside the visual layer.
-            </p>
-          </motion.div>
-
+        <div className="mb-12 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           {/* Small animated technical graphic */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[240px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 360 240">
+            className="relative order-2 hidden h-[480px] w-full max-w-[600px] shrink-0 lg:order-1 lg:block"
+          > */}
+            <svg className="h-full w-full" viewBox="0 0 360 240">
               {/* Background guide lines */}
-              <line x1="0" y1="120" x2="360" y2="120" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
-              <line x1="180" y1="0" x2="180" y2="240" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
+              <line x1="0" y1="120" x2="360" y2="120" stroke="white" strokeOpacity="0.03" strokeWidth="0.5" />
+              <line x1="180" y1="0" x2="180" y2="240" stroke="white" strokeOpacity="0.03" strokeWidth="0.5" />
 
               {/* Fragmented nodes - left side (chaos) */}
               <motion.circle
@@ -117,7 +89,7 @@ export function WhySection() {
                 x1="40" y1="50"
                 x2="180" y2="120"
                 stroke="#E30049"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: [0, 1, 1] }}
@@ -127,7 +99,7 @@ export function WhySection() {
                 x1="70" y1="100"
                 x2="180" y2="120"
                 stroke="#E30049"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: [0, 1, 1] }}
@@ -137,7 +109,7 @@ export function WhySection() {
                 x1="55" y1="140"
                 x2="180" y2="120"
                 stroke="#E30049"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: [0, 1, 1] }}
@@ -147,7 +119,7 @@ export function WhySection() {
                 x1="35" y1="190"
                 x2="180" y2="120"
                 stroke="#E30049"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.3"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: [0, 1, 1] }}
@@ -159,7 +131,7 @@ export function WhySection() {
                 cx="180" cy="120"
                 r="28"
                 stroke="#E30049"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.5"
                 fill="none"
                 animate={{ scale: [1, 1.08, 1] }}
@@ -169,7 +141,7 @@ export function WhySection() {
                 cx="180" cy="120"
                 r="16"
                 stroke="white"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.15"
                 fill="none"
               />
@@ -185,7 +157,7 @@ export function WhySection() {
                 cx="180" cy="120"
                 r="40"
                 stroke="white"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.1"
                 strokeDasharray="4,8"
                 fill="none"
@@ -199,7 +171,7 @@ export function WhySection() {
                 x1="208" y1="120"
                 x2="300" y2="60"
                 stroke="white"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 strokeDasharray="3,3"
                 animate={{ strokeDashoffset: [0, -6] }}
@@ -209,7 +181,7 @@ export function WhySection() {
                 x1="208" y1="120"
                 x2="310" y2="100"
                 stroke="white"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 strokeDasharray="3,3"
                 animate={{ strokeDashoffset: [0, -6] }}
@@ -219,7 +191,7 @@ export function WhySection() {
                 x1="208" y1="120"
                 x2="310" y2="140"
                 stroke="white"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 strokeDasharray="3,3"
                 animate={{ strokeDashoffset: [0, -6] }}
@@ -229,7 +201,7 @@ export function WhySection() {
                 x1="208" y1="120"
                 x2="300" y2="180"
                 stroke="white"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 strokeOpacity="0.4"
                 strokeDasharray="3,3"
                 animate={{ strokeDashoffset: [0, -6] }}
@@ -243,10 +215,10 @@ export function WhySection() {
               <circle cx="300" cy="180" r="3" fill="white" fillOpacity="0.5" />
 
               {/* Terminal endpoint indicators */}
-              <circle cx="300" cy="60" r="8" stroke="white" strokeWidth="1" strokeOpacity="0.2" fill="none" />
-              <circle cx="310" cy="100" r="8" stroke="white" strokeWidth="1" strokeOpacity="0.2" fill="none" />
-              <circle cx="310" cy="140" r="8" stroke="white" strokeWidth="1" strokeOpacity="0.2" fill="none" />
-              <circle cx="300" cy="180" r="8" stroke="white" strokeWidth="1" strokeOpacity="0.2" fill="none" />
+              <circle cx="300" cy="60" r="8" stroke="white" strokeWidth="0.5" strokeOpacity="0.2" fill="none" />
+              <circle cx="310" cy="100" r="8" stroke="white" strokeWidth="0.5" strokeOpacity="0.2" fill="none" />
+              <circle cx="310" cy="140" r="8" stroke="white" strokeWidth="0.5" strokeOpacity="0.2" fill="none" />
+              <circle cx="300" cy="180" r="8" stroke="white" strokeWidth="0.5" strokeOpacity="0.2" fill="none" />
 
               {/* Signal pulses traveling along output lines */}
               <motion.circle
@@ -274,6 +246,33 @@ export function WhySection() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
               />
             </svg>
+          {/* </motion.div> */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="order-1 w-full space-y-4 text-left lg:order-2 lg:ml-auto lg:max-w-2xl lg:pl-4"
+          >
+            <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
+              Why empr<span className="text-[#E30049]">.</span>es?
+            </h2>
+
+            <div className="space-y-1">
+              <h3 className="text-xl lg:text-2xl text-white tracking-tight">
+                Rendering is only one part of a game.
+              </h3>
+              <h3 className="text-xl lg:text-2xl text-white tracking-tight">
+                empr.es provides the <span className="text-[#E30049]">missing architectural layer</span>.
+              </h3>
+            </div>
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-2xl pt-2">
+              As browser games grow, teams need more than a renderer. They need clear ownership of data and logic,
+              explicit execution flow, safe lifecycle management, reusable services, predictable state and the freedom
+              to run game logic outside the visual layer.
+            </p>
           </motion.div>
         </div>
 
