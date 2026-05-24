@@ -19,7 +19,7 @@ export function ArchitectureChoice() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Centered */}
         <motion.div
@@ -34,9 +34,9 @@ export function ArchitectureChoice() {
             <span className="text-[#E30049]">ECS</span> or <span className="text-[#E30049]">Component Driven</span>
           </h2>
 
-          <p className="text-lg text-white/70 tracking-tight">
+          {/* <p className="text-lg text-white/70 tracking-tight">
             Every game team has its own way of thinking about architecture.
-          </p>
+          </p> */}
 
           <p className="text-sm text-white/50 leading-relaxed max-w-2xl mx-auto">
             Some projects need strict data-oriented execution with systems, filters and explicit pipelines.
@@ -56,8 +56,11 @@ export function ArchitectureChoice() {
           <div className="relative mx-auto max-w-xl">
             <div className="border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm rounded-lg p-6 text-center">
               <div className="text-xs text-[#E30049]/70 tracking-wider uppercase mb-3">Same Core Runtime</div>
-              <div className="text-sm text-white/60 leading-relaxed">
+              {/* <div className="text-sm text-white/60 leading-relaxed">
                 Entities · Components · DI · Store · FSM · Signals · Lifecycle
+              </div> */}
+              <div className="text-sm text-white/60 leading-relaxed">
+                Every game team has its own way of thinking about architecture.
               </div>
             </div>
 
@@ -86,10 +89,10 @@ export function ArchitectureChoice() {
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8 hover:border-white/20 transition-all duration-300">
               {/* Header */}
               <div className="mb-5 space-y-3">
-                <h3 className="text-2xl text-white tracking-tight">ECS Architecture</h3>
-                <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
+                {/* <h3 className="text-2xl text-white tracking-tight">ECS Architecture</h3> */}
+                {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Systems · Filters · Pipelines</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Key Statement */}
@@ -98,11 +101,11 @@ export function ArchitectureChoice() {
               </p>
 
               {/* Description */}
-              <p className="text-sm text-white/60 leading-relaxed mb-6">
+              {/* <p className="text-sm text-white/60 leading-relaxed mb-6">
                 Components describe state. Entities compose components at runtime. Systems contain logic and
                 process only the entities they care about. Execution is organized through explicit pipelines,
                 making game logic predictable, reusable and easy to inspect.
-              </p>
+              </p> */}
 
               {/* Best for tags */}
               <div className="space-y-3">
@@ -132,10 +135,10 @@ export function ArchitectureChoice() {
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8 hover:border-white/20 transition-all duration-300">
               {/* Header */}
               <div className="mb-5 space-y-3">
-                <h3 className="text-2xl text-white tracking-tight">Component Driven Architecture</h3>
-                <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
+                {/* <h3 className="text-2xl text-white tracking-tight">Component Driven Architecture</h3> */}
+                {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Scene Components · Orchestrators · Services</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Key Statement */}
@@ -144,11 +147,11 @@ export function ArchitectureChoice() {
               </p>
 
               {/* Description */}
-              <p className="text-sm text-white/60 leading-relaxed mb-6">
+              {/* <p className="text-sm text-white/60 leading-relaxed mb-6">
                 Components belong to scene entities, but they do not hide Unity-style lifecycle logic inside themselves.
                 Execution stays external and controlled by orchestrators and services, giving you a familiar object-oriented
                 structure without losing architectural discipline.
-              </p>
+              </p> */}
 
               {/* Best for tags */}
               <div className="space-y-3">
