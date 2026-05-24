@@ -4,16 +4,6 @@
 }
 
 :root {
-  --ifm-color-primary: #e30049;
-  --ifm-color-primary-dark: #cc0042;
-  --ifm-color-primary-darker: #c2003f;
-  --ifm-color-primary-darkest: #a00034;
-  --ifm-color-primary-light: #fa0050;
-  --ifm-color-primary-lighter: #ff0454;
-  --ifm-color-primary-lightest: #ff2d6e;
-}
-
-[data-theme='dark'] {
   --ifm-color-primary: #ff2d6e;
   --ifm-color-primary-dark: #fa0050;
   --ifm-color-primary-darker: #f00050;
