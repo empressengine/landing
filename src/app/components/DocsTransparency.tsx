@@ -56,6 +56,7 @@ export function DocsTransparency() {
             </p>
           </motion.div>
           {/* Left: Animated Architecture Transparency Diagram */}
+            <div className="hidden h-[320px] w-full max-w-[340px] shrink-0 lg:landscape:block">
             <svg className="w-full h-full" viewBox="0 0 340 320">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="340" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -195,6 +196,7 @@ export function DocsTransparency() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
             </svg>
+            </div>
 
           
         </div>

@@ -40,6 +40,7 @@ export function FinalCTA() {
           </motion.div>
 
           {/* Right: Animated Activation Diagram */}
+            <div className="hidden h-[320px] w-full max-w-[360px] shrink-0 justify-self-end lg:landscape:block">
             <svg className="w-full h-full" viewBox="0 0 360 320">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="360" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -171,6 +172,7 @@ export function FinalCTA() {
                 transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
               />
             </svg>
+            </div>
         </div>
 
         {/* Bottom: Two-Panel Final CTA Board */}

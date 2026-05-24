@@ -65,6 +65,7 @@ export function PixiJSRuntime() {
               </p>
           </motion.div>
           {/* Left: Animated Integration Diagram */}
+            <div className="hidden h-[320px] w-full max-w-[350px] shrink-0 lg:landscape:block">
             <svg className="w-full h-full" viewBox="0 0 350 320">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="350" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -203,6 +204,7 @@ export function PixiJSRuntime() {
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut", delay: 1.2 }}
               />
             </svg>
+            </div>
           
         </div>
 

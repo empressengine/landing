@@ -82,6 +82,7 @@ export function ExecutionModels() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden h-[640px] w-full max-w-[720px] shrink-0 lg:block"
           > */}
+            <div className="relative hidden h-[640px] w-full max-w-[720px] shrink-0 lg:landscape:block">
             <svg className="h-full w-full" viewBox="60 112 480 328">
               {/* Background guide grid */}
               <line x1="0" y1="140" x2="600" y2="140" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -222,6 +223,7 @@ export function ExecutionModels() {
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2.8 }}
               />
             </svg>
+            </div>
           {/* </motion.div> */}
         </div>
 

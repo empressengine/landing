@@ -43,6 +43,7 @@ export function WhySection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative order-2 hidden h-[480px] w-full max-w-[600px] shrink-0 lg:order-1 lg:block"
           > */}
+            <div className="relative order-2 hidden h-[480px] w-full max-w-[600px] shrink-0 lg:order-1 lg:landscape:block">
             <svg className="h-full w-full" viewBox="0 0 360 240">
               {/* Background guide lines */}
               <line x1="0" y1="120" x2="360" y2="120" stroke="white" strokeOpacity="0.03" strokeWidth="0.5" />
@@ -248,6 +249,7 @@ export function WhySection() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
               />
             </svg>
+            </div>
           {/* </motion.div> */}
 
           <motion.div

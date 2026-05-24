@@ -42,6 +42,7 @@ export function FlowControl() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden h-[480px] w-full max-w-[600px] shrink-0 lg:block"
           > */}
+            <div className="relative hidden h-[480px] w-full max-w-[600px] shrink-0 lg:landscape:block">
             <svg className="w-full h-full" viewBox="0 0 400 320" style={{ transform: 'scale(0.7)' }}>
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="400" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -224,6 +225,7 @@ export function FlowControl() {
                 />
               </motion.circle>
             </svg>
+            </div>
           {/* </motion.div> */}
 
           {/* Right: Intro Text */}

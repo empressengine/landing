@@ -98,7 +98,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           > */}
-            <div className=" overflow-hidden">
+            <div className="hidden overflow-hidden lg:landscape:block">
               <RuntimePanel />
             </div>
           {/* </motion.div> */}

@@ -69,6 +69,7 @@ export function UseCases() {
         <div className="mb-16 grid lg:grid-cols-[1fr_750px] gap-48 items-center">
 
           {/* Right: Animated Use-Case Map */}
+          <div className="hidden h-[320px] w-full max-w-[350px] shrink-0 justify-self-end lg:landscape:block">
           <svg className="w-full h-full" viewBox="0 0 350 320">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="350" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -194,6 +195,7 @@ export function UseCases() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
               />
             </svg>
+          </div>
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
