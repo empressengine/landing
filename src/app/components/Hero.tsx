@@ -20,17 +20,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center px-6 lg:px-12 py-24 overflow-hidden">
-      {/* Background grid overlay */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px'
-        }} />
-      </div>
-
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Content */}

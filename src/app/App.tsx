@@ -1,3 +1,4 @@
+import { BackgroundGrid } from "./components/BackgroundGrid";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { ArchitectureOverview } from "./components/ArchitectureOverview";
@@ -17,21 +18,24 @@ import { FinalCTA } from "./components/FinalCTA";
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
-      <Hero />
-      <ArchitectureOverview />
-      <WhySection />
-      <ArchitectureChoice />
-      <ExecutionModels />
-      <FlowControl />
-      <RendererAgnostic />
-      <PixiJSRuntime />
-      <BuiltForProduction />
-      <Ecosystem />
-      <UseCases />
-      <DocsTransparency />
-      <Roadmap />
-      <FinalCTA />
+      <BackgroundGrid />
+      <div className="relative z-10">
+        <Header />
+        <Hero />
+        <ArchitectureOverview />
+        <WhySection />
+        <ArchitectureChoice />
+        <ExecutionModels />
+        <FlowControl />
+        <RendererAgnostic />
+        <PixiJSRuntime />
+        <BuiltForProduction />
+        <Ecosystem />
+        <UseCases />
+        <DocsTransparency />
+        <Roadmap />
+        <FinalCTA />
+      </div>
     </div>
   );
 }
