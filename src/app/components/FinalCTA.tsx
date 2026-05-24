@@ -12,10 +12,10 @@ export function FinalCTA() {
   ];
 
   return (
-    <section id="start-building" className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section id="start-building" className="relative px-6 lg:px-12 py-24">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Left-aligned Intro + Right SVG */}
-        <div className="mb-16 grid lg:grid-cols-[1fr_360px] gap-12 items-center">
+        <div className="mb-16 grid lg:grid-cols-[1fr_550px] gap-48 items-center">
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,13 +40,6 @@ export function FinalCTA() {
           </motion.div>
 
           {/* Right: Animated Activation Diagram */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          >
             <svg className="w-full h-full" viewBox="0 0 360 320">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="360" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -178,7 +171,6 @@ export function FinalCTA() {
                 transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
               />
             </svg>
-          </motion.div>
         </div>
 
         {/* Bottom: Two-Panel Final CTA Board */}
