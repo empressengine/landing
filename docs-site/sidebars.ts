@@ -139,6 +139,30 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: '@empr/es-sistema',
+      link: {
+        type: 'doc',
+        id: 'features/es-sistema/index',
+      },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'core',
+          items: ['features/es-sistema/core/system'],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          items: [
+            'features/es-sistema/features/composer',
+            'features/es-sistema/features/executor',
+          ],
+        },
+      ],
+    },
   ],
 };
 
