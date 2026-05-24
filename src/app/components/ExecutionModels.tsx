@@ -41,8 +41,30 @@ export function ExecutionModels() {
     <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Split Layout */}
-        <div className="mb-16 grid lg:grid-cols-[300px_1fr] gap-12 items-center">
-          {/* Left: Animated Technical SVG */}
+        <div className="mb-16 grid lg:grid-cols-[1fr_300px] gap-12 items-center">
+          {/* Left: Intro Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
+              Pipelines vs Orchestrators
+            </h2>
+
+            <p className="text-xl text-white/90 tracking-tight">
+              Architecture defines how you structure your game. Execution defines how your game actually runs.
+            </p>
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-2xl">
+              empr.es provides two execution models for two different ways of thinking about game logic:
+              Pipelines for ECS projects and Orchestrators for Component Driven projects.
+            </p>
+          </motion.div>
+
+          {/* Right: Animated Technical SVG */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -184,28 +206,6 @@ export function ExecutionModels() {
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2.8 }}
               />
             </svg>
-          </motion.div>
-
-          {/* Right: Intro Text */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6 lg:text-right"
-          >
-            <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
-              Pipelines vs Orchestrators
-            </h2>
-
-            <p className="text-xl text-white/90 tracking-tight">
-              Architecture defines how you structure your game. Execution defines how your game actually runs.
-            </p>
-
-            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto max-w-2xl">
-              empr.es provides two execution models for two different ways of thinking about game logic:
-              Pipelines for ECS projects and Orchestrators for Component Driven projects.
-            </p>
           </motion.div>
         </div>
 
