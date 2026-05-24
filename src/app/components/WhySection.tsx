@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 
+/* Kept for commented comparison panel below
 const problemSolutionPairs = [
   {
     problem: "Logic turns into spaghetti",
@@ -26,13 +27,14 @@ const problemSolutionPairs = [
     solution: "Run the same core in browser, server, tests and tools"
   }
 ];
+*/
 
 export function WhySection() {
   return (
     <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header with visual accent */}
-        <div className="mb-12 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           {/* Small animated technical graphic */}
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -268,15 +270,24 @@ export function WhySection() {
               </h3>
             </div>
 
-            <p className="text-sm text-white/50 leading-relaxed max-w-2xl pt-2">
-              As browser games grow, teams need more than a renderer. They need clear ownership of data and logic,
-              explicit execution flow, safe lifecycle management, reusable services, predictable state and the freedom
-              to run game logic outside the visual layer.
-            </p>
+            <div className="max-w-2xl space-y-4 pt-2">
+              <p className="text-sm text-white/50 leading-relaxed">
+                As browser games grow, teams need more than a renderer. They need clear ownership of data and logic,
+                explicit execution flow, safe lifecycle management, reusable services, predictable state and the freedom
+                to run game logic outside the visual layer.
+              </p>
+              <p className="text-sm text-white/50 leading-relaxed">
+                empr.es keeps data, behavior, execution and rendering separate, with a renderer-agnostic core and
+                explicit flow through FSMs, signals and lifecycle ownership. Teams can choose ECS pipelines or
+                Component Driven orchestrators, rely on object pooling and lifecycle tracking by design, and run the
+                same core in the browser, on the server, in tests and in tools—without maintaining parallel
+                implementations.
+              </p>
+            </div>
           </motion.div>
         </div>
 
-        {/* Unified Comparison Panel */}
+        {/* Unified Comparison Panel — kept for reference
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -284,7 +295,6 @@ export function WhySection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg overflow-hidden"
         >
-          {/* Column Headers */}
           <div className="grid grid-cols-2 gap-px bg-white/5">
             <div className="px-6 py-3 bg-black">
               <span className="text-xs text-white/40 tracking-wider uppercase">Problem</span>
@@ -294,10 +304,8 @@ export function WhySection() {
             </div>
           </div>
 
-          {/* Divider */}
           <div className="h-px bg-white/10" />
 
-          {/* Comparison Rows */}
           <div className="divide-y divide-white/5">
             {problemSolutionPairs.map((pair, i) => (
               <motion.div
@@ -308,14 +316,12 @@ export function WhySection() {
                 transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
                 className="grid grid-cols-2 gap-px bg-white/5 group hover:bg-white/10 transition-colors duration-300"
               >
-                {/* Problem */}
                 <div className="px-6 py-4 bg-black">
                   <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/50 transition-colors">
                     {pair.problem}
                   </p>
                 </div>
 
-                {/* Solution */}
                 <div className="px-6 py-4 bg-black">
                   <p className="text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">
                     {pair.solution}
@@ -325,6 +331,7 @@ export function WhySection() {
             ))}
           </div>
         </motion.div>
+        */}
       </div>
     </section>
   );
