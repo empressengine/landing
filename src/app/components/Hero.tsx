@@ -5,6 +5,9 @@ import { ArrowRight, Book } from "lucide-react";
 import { motion } from "motion/react";
 
 export function Hero() {
+  const headlineAccentClassName = "hero-headline-accent";
+  const headlineAccentDelay1ClassName = `${headlineAccentClassName} hero-headline-accent--delay-1`;
+  const headlineAccentDelay2ClassName = `${headlineAccentClassName} hero-headline-accent--delay-2`;
   const badges = [
     "TypeScript-first",
     "ECS / Component Driven",
@@ -47,9 +50,9 @@ export function Hero() {
 
             {/* Headline */}
             <h1 className="text-5xl lg:text-7xl leading-[1.1] tracking-tight text-white">
-              Architect your game logic.<br />
-              Control your runtime.<br />
-              Own your rendering.
+              Architect your <span className={headlineAccentClassName}>logic</span>.<br />
+              Control your <span className={headlineAccentDelay1ClassName}>runtime</span>.<br />
+              Own your <span className={headlineAccentDelay2ClassName}>rendering</span>.
             </h1>
 
             {/* Subtitle */}

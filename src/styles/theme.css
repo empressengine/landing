@@ -119,6 +119,41 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@keyframes hero-headline-gradient-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-headline-accent {
+  animation: hero-headline-gradient-flow 6s ease-in-out var(--hero-headline-accent-delay, 0s) infinite;
+  background-image: linear-gradient(90deg, #E30049 0%, #AD0033 45%, #E30049 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-headline-accent--delay-1 {
+  --hero-headline-accent-delay: 0.8s;
+}
+
+.hero-headline-accent--delay-2 {
+  --hero-headline-accent-delay: 1.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-headline-accent {
+    animation: none;
+    background-position: 100% 50%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'empr.es',
   tagline: 'Architecture documentation',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   url: 'https://empr.es',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
