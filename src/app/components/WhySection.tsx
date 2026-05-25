@@ -61,6 +61,14 @@ export function WhySection() {
               explicit execution flow, safe lifecycle management, reusable services, predictable state and the freedom
               to run game logic outside the visual layer.
             </p>
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-2xl pt-2">
+                empr.es keeps data, behavior, execution and rendering separate, with a renderer-agnostic core and
+                explicit flow through FSMs, signals and lifecycle ownership. Teams can choose ECS pipelines or
+                Component Driven orchestrators, rely on object pooling and lifecycle tracking by design, and run the
+                same core in the browser, on the server, in tests and in tools - without maintaining parallel
+                implementations.
+              </p>
           </motion.div>
 
           <svg className="hidden lg:landscape:block w-full h-full" viewBox="20 35 320 175">
