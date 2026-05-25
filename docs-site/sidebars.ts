@@ -247,7 +247,169 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
-  apiSidebar: ['api/index'],
+  apiSidebar: [
+    'api/index',
+    {
+      type: 'category',
+      label: '@empr/es',
+      link: { type: 'doc', id: 'api/es/index' },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'shared',
+          items: [
+            'api/es/shared/deferred-promise',
+            'api/es/shared/object-pool',
+            'api/es/shared/prng',
+            'api/es/shared/signal',
+            'api/es/shared/utils',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'core',
+          items: [
+            'api/es/core/component',
+            'api/es/core/dependency',
+            'api/es/core/entity',
+            'api/es/core/execution-registry',
+            'api/es/core/filtered',
+            'api/es/core/store',
+            'api/es/core/update-loop',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          items: ['api/es/features/fsm', 'api/es/features/signal-service'],
+        },
+        {
+          type: 'category',
+          label: 'widgets',
+          items: [
+            'api/es/widgets/entity-storage',
+            'api/es/widgets/lifecycle',
+            'api/es/widgets/pools',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'bootstrap',
+          link: { type: 'doc', id: 'api/es/bootstrap/index' },
+          items: [],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '@empr/es-sistema',
+      link: { type: 'doc', id: 'api/es-sistema/index' },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'core',
+          items: ['api/es-sistema/core/system'],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          items: [
+            'api/es-sistema/features/composer',
+            'api/es-sistema/features/executor',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'bootstrap',
+          link: { type: 'doc', id: 'api/es-sistema/bootstrap/index' },
+          items: [],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '@empr/es-componente',
+      link: { type: 'doc', id: 'api/es-componente/index' },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'core',
+          items: [
+            'api/es-componente/core/component',
+            'api/es-componente/core/dependency',
+            'api/es-componente/core/orchestrator',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          items: ['api/es-componente/features/executor'],
+        },
+        {
+          type: 'category',
+          label: 'bootstrap',
+          link: { type: 'doc', id: 'api/es-componente/bootstrap/index' },
+          items: [],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '@empr/es-lienzo',
+      link: { type: 'doc', id: 'api/es-lienzo/index' },
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'shared',
+          items: ['api/es-lienzo/shared/ref'],
+        },
+        {
+          type: 'category',
+          label: 'core',
+          items: [
+            'api/es-lienzo/core/entity',
+            'api/es-lienzo/core/object-pool',
+            'api/es-lienzo/core/update-loop',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'features (layer)',
+          items: [
+            'api/es-lienzo/features/assets-loader',
+            'api/es-lienzo/features/assets-storage',
+            'api/es-lienzo/features/scene',
+            'api/es-lienzo/features/tree-builder',
+            'api/es-lienzo/features/view',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'widgets',
+          items: [
+            'api/es-lienzo/widgets/interaction-service',
+            'api/es-lienzo/widgets/layers-service',
+            'api/es-lienzo/widgets/particle-service',
+            'api/es-lienzo/widgets/pixi-pools',
+            'api/es-lienzo/widgets/prefab-service',
+            'api/es-lienzo/widgets/spine-service',
+            'api/es-lienzo/widgets/timer',
+            'api/es-lienzo/widgets/tween-service',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'bootstrap',
+          link: { type: 'doc', id: 'api/es-lienzo/bootstrap/index' },
+          items: [],
+        },
+      ],
+    },
+  ],
   licenseSidebar: ['license/index'],
 };
 
