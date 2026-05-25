@@ -222,9 +222,9 @@ export function ExecutionModels() {
           >
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8">
               {/* Header */}
-              <div className="mb-6 space-y-3">
+              <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                 <h3 className="text-2xl text-white tracking-tight">Pipelines</h3>
-                <div className="inline-block px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md">
+                <div className="inline-block px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md sm:ml-auto">
                   <span className="text-xs text-[#E30049]/80 tracking-wide">ECS execution model</span>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export function ExecutionModels() {
               </p>
 
               {/* Execution Flow */}
-              <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
+              {/* <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
                 <div className="text-xs text-white/40 tracking-wider uppercase mb-4">Example flow</div>
                 <div className="space-y-2">
                   {pipelineSteps.map((step, i) => (
@@ -264,7 +264,7 @@ export function ExecutionModels() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Use cases */}
               <div className="space-y-3">
@@ -292,9 +292,9 @@ export function ExecutionModels() {
           >
             <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-8">
               {/* Header */}
-              <div className="mb-6 space-y-3">
+              <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                 <h3 className="text-2xl text-white tracking-tight">Orchestrators</h3>
-                <div className="inline-block px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md">
+                <div className="inline-block px-3 py-1.5 border border-[#E30049]/20 bg-[#E30049]/10 rounded-md sm:ml-auto">
                   <span className="text-xs text-[#E30049]/80 tracking-wide">Component Driven execution model</span>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export function ExecutionModels() {
               </p>
 
               {/* Execution Flow */}
-              <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
+              {/* <div className="mb-6 p-6 border border-white/10 bg-black/40 rounded-lg">
                 <div className="text-xs text-white/40 tracking-wider uppercase mb-4">Example flow</div>
                 <div className="space-y-2">
                   {orchestratorSteps.map((step, i) => (
@@ -334,7 +334,7 @@ export function ExecutionModels() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Use cases */}
               <div className="space-y-3">
