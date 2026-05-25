@@ -89,9 +89,9 @@ export function ArchitectureChoice() {
               {/* Header */}
               <div className="mb-5 space-y-3">
                 <h3 className="text-2xl text-white tracking-tight">ECS Architecture</h3>
-                <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
+                {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Systems · Filters · Pipelines</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Key Statement */}
@@ -135,9 +135,9 @@ export function ArchitectureChoice() {
               {/* Header */}
               <div className="mb-5 space-y-3">
                 <h3 className="text-2xl text-white tracking-tight">Component Driven Architecture</h3>
-                <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
+                {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Scene Components · Orchestrators · Services</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Key Statement */}
