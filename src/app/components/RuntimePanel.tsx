@@ -24,7 +24,7 @@ export function RuntimePanel() {
           className="relative"
         >
           {/* Core node */}
-          <div className="w-48 h-48 relative">
+          <div className="w-96 h-96 relative">
             {/* Outer rings */}
             <motion.div
               className="absolute inset-0 rounded-full border border-[#E30049]/30"
@@ -32,15 +32,15 @@ export function RuntimePanel() {
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="absolute inset-4 rounded-full border border-white/20"
+              className="absolute inset-8 rounded-full border border-white/20"
               animate={{ rotate: -360 }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             />
 
             {/* Center */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-[#E30049]/20 border border-[#E30049] flex items-center justify-center">
-                <div className="w-8 h-8 rounded-full bg-[#E30049]">
+              <div className="w-32 h-32 rounded-full bg-[#E30049]/20 border border-[#E30049] flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-[#E30049]">
                   <motion.div
                     className="w-full h-full rounded-full bg-[#E30049]"
                     animate={{ opacity: [1, 0.5, 1] }}
@@ -54,11 +54,11 @@ export function RuntimePanel() {
             {[0, 60, 120, 180, 240, 300].map((angle, i) => (
               <motion.div
                 key={angle}
-                className="absolute w-3 h-3 rounded-full bg-white/60"
+                className="absolute w-6 h-6 rounded-full bg-white/60"
                 style={{
                   top: '50%',
                   left: '50%',
-                  transform: `rotate(${angle}deg) translateY(-90px) translateX(-50%)`,
+                  transform: `rotate(${angle}deg) translateY(-180px) translateX(-50%)`,
                 }}
                 animate={{ 
                   opacity: [0.4, 1, 0.4],
@@ -75,14 +75,14 @@ export function RuntimePanel() {
           </div>
 
           {/* Signal lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ transform: 'translate(-25%, -25%) scale(1.5)' }}>
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ transform: 'translate(-25%, -25%) scale(3)' }}>
             {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
               <motion.line
                 key={angle}
                 x1="50%"
                 y1="50%"
-                x2={`calc(50% + ${Math.cos(angle * Math.PI / 180) * 200}px)`}
-                y2={`calc(50% + ${Math.sin(angle * Math.PI / 180) * 200}px)`}
+                x2={`calc(50% + ${Math.cos(angle * Math.PI / 180) * 400}px)`}
+                y2={`calc(50% + ${Math.sin(angle * Math.PI / 180) * 400}px)`}
                 stroke="#E30049"
                 strokeWidth="1"
                 strokeOpacity="0.3"
