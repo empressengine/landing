@@ -14,15 +14,7 @@ export function FinalCTA() {
   return (
     <section id="start-building" className="relative px-6 lg:px-12 py-24">
       {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Left-aligned Intro + Right SVG */}

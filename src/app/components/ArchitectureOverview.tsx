@@ -148,9 +148,6 @@ export function ArchitectureOverview() {
           ))}
         </div>
       </div>
-
-      {/* Bottom grid pattern */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );
 }
