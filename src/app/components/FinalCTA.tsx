@@ -12,21 +12,13 @@ export function FinalCTA() {
   ];
 
   return (
-    <section id="start-building" className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section id="start-building" className="relative px-6 lg:px-12 py-24">
       {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Left-aligned Intro + Right SVG */}
-        <div className="mb-16 grid lg:grid-cols-[1fr_360px] gap-12 items-center">
+        <div className="mb-16 grid lg:landscape:grid-cols-[1fr_450px] gap-12 items-center">
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,15 +42,7 @@ export function FinalCTA() {
             </p>
           </motion.div>
 
-          {/* Right: Animated Activation Diagram */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 360 320">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="35 75 300 170">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="360" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <circle cx="80" cy="160" r="100" stroke="white" strokeOpacity="0.02" strokeWidth="1" fill="none" />
@@ -188,8 +172,7 @@ export function FinalCTA() {
                 }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 1.5 }}
               />
-            </svg>
-          </motion.div>
+          </svg>
         </div>
 
         {/* Bottom: Two-Panel Final CTA Board */}

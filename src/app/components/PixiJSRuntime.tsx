@@ -28,30 +28,13 @@ export function PixiJSRuntime() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
-        <div className="mb-16 grid lg:grid-cols-[350px_1fr] gap-12 items-center">
-          {/* Left: Animated Integration Diagram */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 350 320">
+        <div className="mb-16 grid lg:landscape:grid-cols-[500px_1fr] gap-12 lg:landscape:gap-64 items-center">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="20 55 315 205">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="350" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="160" x2="350" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -188,8 +171,7 @@ export function PixiJSRuntime() {
                 }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut", delay: 1.2 }}
               />
-            </svg>
-          </motion.div>
+          </svg>
 
           {/* Right: Intro Text */}
           <motion.div
@@ -197,28 +179,36 @@ export function PixiJSRuntime() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 lg:text-right"
+            className="space-y-6"
           >
             <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
               Official <span className="text-[#E30049]">PixiJS</span> Runtime
             </h2>
 
-            <p className="text-base text-white/80 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-base text-white/80 leading-relaxed lg:ml-auto">
               empr.es is renderer agnostic at its core, but it also comes with an official PixiJS runtime
               for building production-ready 2D browser games.
             </p>
 
-            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto">
               @empr/es-lienzo bridges the architectural core of empr.es with the PixiJS scene graph.
               It connects entities to Pixi containers, provides declarative view construction, manages assets,
               drives animations through the game loop and keeps rendering lifecycle aligned with the framework.
             </p>
+
+            <p className="text-sm text-white/80 mb-3 leading-relaxed">
+                The renderer stays an integration layer, not the application architecture.
+              </p>
+
+              <p className="text-sm text-white/50 leading-relaxed mb-4">
+                You can use PixiJS out of the box, while still keeping game flow, state, dependency injection,
+                lifecycle and execution control inside empr.es.
+              </p>
           </motion.div>
         </div>
 
         {/* Bottom: 3-Panel System Board */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Panel 1: Built on PixiJS */}
+        {/* <div className="grid lg:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +244,6 @@ export function PixiJSRuntime() {
             </div>
           </motion.div>
 
-          {/* Panel 2: Runtime services included */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -270,7 +259,6 @@ export function PixiJSRuntime() {
                 @empr/es-lienzo provides a complete integration layer for real 2D games.
               </p>
 
-              {/* Services Grid */}
               <div className="space-y-2">
                 {runtimeServices.map((service) => (
                   <div
@@ -288,7 +276,6 @@ export function PixiJSRuntime() {
             </div>
           </motion.div>
 
-          {/* Panel 3: Architecture-first rendering */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -323,7 +310,7 @@ export function PixiJSRuntime() {
               </div>
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

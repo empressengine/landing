@@ -30,21 +30,12 @@ const problemSolutionPairs = [
 
 export function WhySection() {
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
-      {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+    <section className="relative px-6 lg:px-12 py-24">
+
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header with visual accent */}
-        <div className="mb-12 grid lg:grid-cols-[1fr_300px] gap-12 items-center">
+        <div className="mb-12 grid lg:landscape:grid-cols-[1fr_600px] gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,17 +61,17 @@ export function WhySection() {
               explicit execution flow, safe lifecycle management, reusable services, predictable state and the freedom
               to run game logic outside the visual layer.
             </p>
+
+            <p className="text-sm text-white/50 leading-relaxed max-w-2xl pt-2">
+                empr.es keeps data, behavior, execution and rendering separate, with a renderer-agnostic core and
+                explicit flow through FSMs, signals and lifecycle ownership. Teams can choose ECS pipelines or
+                Component Driven orchestrators, rely on object pooling and lifecycle tracking by design, and run the
+                same core in the browser, on the server, in tests and in tools - without maintaining parallel
+                implementations.
+              </p>
           </motion.div>
 
-          {/* Small animated technical graphic */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[240px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 360 240">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="20 35 320 175">
               {/* Background guide lines */}
               <line x1="0" y1="120" x2="360" y2="120" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="180" y1="0" x2="180" y2="240" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -284,19 +275,17 @@ export function WhySection() {
                 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
               />
-            </svg>
-          </motion.div>
+          </svg>
         </div>
 
         {/* Unified Comparison Panel */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg overflow-hidden"
         >
-          {/* Column Headers */}
           <div className="grid grid-cols-2 gap-px bg-white/5">
             <div className="px-6 py-3 bg-black">
               <span className="text-xs text-white/40 tracking-wider uppercase">Problem</span>
@@ -306,10 +295,8 @@ export function WhySection() {
             </div>
           </div>
 
-          {/* Divider */}
           <div className="h-px bg-white/10" />
 
-          {/* Comparison Rows */}
           <div className="divide-y divide-white/5">
             {problemSolutionPairs.map((pair, i) => (
               <motion.div
@@ -320,14 +307,12 @@ export function WhySection() {
                 transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
                 className="grid grid-cols-2 gap-px bg-white/5 group hover:bg-white/10 transition-colors duration-300"
               >
-                {/* Problem */}
                 <div className="px-6 py-4 bg-black">
                   <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/50 transition-colors">
                     {pair.problem}
                   </p>
                 </div>
 
-                {/* Solution */}
                 <div className="px-6 py-4 bg-black">
                   <p className="text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">
                     {pair.solution}
@@ -336,7 +321,7 @@ export function WhySection() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -19,17 +19,8 @@ export function ArchitectureChoice() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Centered */}
@@ -98,9 +89,9 @@ export function ArchitectureChoice() {
               {/* Header */}
               <div className="mb-5 space-y-3">
                 <h3 className="text-2xl text-white tracking-tight">ECS Architecture</h3>
-                <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
+                {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Systems · Filters · Pipelines</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Key Statement */}
@@ -144,9 +135,9 @@ export function ArchitectureChoice() {
               {/* Header */}
               <div className="mb-5 space-y-3">
                 <h3 className="text-2xl text-white tracking-tight">Component Driven Architecture</h3>
-                <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
+                {/* <div className="inline-block px-3 py-1.5 border border-white/10 bg-white/5 rounded-md">
                   <span className="text-xs text-white/40 tracking-wide">Scene Components · Orchestrators · Services</span>
-                </div>
+                </div> */}
               </div>
 
               {/* Key Statement */}

@@ -32,7 +32,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:landscape:grid-cols-2 gap-16 lg:landscape:gap-24 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -41,12 +41,12 @@ export function Hero() {
             className="space-y-8"
           >
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#E30049]/30 bg-[#E30049]/5 rounded-full">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#E30049]/30 bg-[#E30049]/5 rounded-full">
               <div className="w-1.5 h-1.5 rounded-full bg-[#E30049] animate-pulse" />
               <span className="text-sm text-white/70 tracking-wide">
                 Modular TypeScript Framework for Browser Games
               </span>
-            </div>
+            </div> */}
 
             {/* Headline */}
             <h1 className="text-5xl lg:text-7xl leading-[1.1] tracking-tight text-white">
@@ -107,9 +107,9 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="hidden lg:landscape:block relative"
           >
-            <div className="relative border border-white/10 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-lg overflow-hidden">
+            <div className="relative overflow-hidden">
               <RuntimePanel />
             </div>
           </motion.div>

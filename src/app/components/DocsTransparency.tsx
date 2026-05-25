@@ -29,30 +29,13 @@ export function DocsTransparency() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       {/* Background grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, white 1px, transparent 1px),
-            linear-gradient(to bottom, white 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
-        <div className="mb-16 grid lg:grid-cols-[340px_1fr] gap-12 items-center">
-          {/* Left: Animated Architecture Transparency Diagram */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          >
-            <svg className="w-full h-full" viewBox="0 0 340 320">
+        <div className="mb-16 grid lg:landscape:grid-cols-[450px_1fr] gap-12 lg:landscape:gap-64 items-center">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="25 30 290 255">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="340" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="160" x2="340" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -190,8 +173,7 @@ export function DocsTransparency() {
                 animate={{ width: [0, 160, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
-            </svg>
-          </motion.div>
+          </svg>
 
           {/* Right: Intro Text */}
           <motion.div
@@ -199,17 +181,17 @@ export function DocsTransparency() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 lg:text-right"
+            className="space-y-6"
           >
             <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
               Documentation and<br />Architecture Transparency
             </h2>
 
-            <p className="text-base text-white/80 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-base text-white/80 leading-relaxed lg:ml-auto ">
               A framework is only useful if teams can understand it, trust it and evolve it safely.
             </p>
 
-            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto ">
               empr.es is documented not only as an API, but as an architecture. Core concepts, package boundaries,
               execution models, lifecycle rules and integration layers are described explicitly so teams can reason
               about how the framework works under the hood.
