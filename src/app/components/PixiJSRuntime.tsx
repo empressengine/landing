@@ -195,12 +195,20 @@ export function PixiJSRuntime() {
               It connects entities to Pixi containers, provides declarative view construction, manages assets,
               drives animations through the game loop and keeps rendering lifecycle aligned with the framework.
             </p>
+
+            <p className="text-sm text-white/80 mb-3 leading-relaxed">
+                The renderer stays an integration layer, not the application architecture.
+              </p>
+
+              <p className="text-sm text-white/50 leading-relaxed mb-4">
+                You can use PixiJS out of the box, while still keeping game flow, state, dependency injection,
+                lifecycle and execution control inside empr.es.
+              </p>
           </motion.div>
         </div>
 
         {/* Bottom: 3-Panel System Board */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Panel 1: Built on PixiJS */}
+        {/* <div className="grid lg:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +244,6 @@ export function PixiJSRuntime() {
             </div>
           </motion.div>
 
-          {/* Panel 2: Runtime services included */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -252,7 +259,6 @@ export function PixiJSRuntime() {
                 @empr/es-lienzo provides a complete integration layer for real 2D games.
               </p>
 
-              {/* Services Grid */}
               <div className="space-y-2">
                 {runtimeServices.map((service) => (
                   <div
@@ -270,7 +276,6 @@ export function PixiJSRuntime() {
             </div>
           </motion.div>
 
-          {/* Panel 3: Architecture-first rendering */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -305,7 +310,7 @@ export function PixiJSRuntime() {
               </div>
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
