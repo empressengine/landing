@@ -42,7 +42,7 @@ export function PixiJSRuntime() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
-        <div className="mb-16 grid lg:grid-cols-[500px_1fr] gap-12 items-center">
+        <div className="mb-16 grid lg:grid-cols-[500px_1fr] gap-64 items-center">
           {/* Left: Animated Integration Diagram */}
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -197,18 +197,18 @@ export function PixiJSRuntime() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 lg:text-right"
+            className="space-y-6"
           >
             <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
               Official <span className="text-[#E30049]">PixiJS</span> Runtime
             </h2>
 
-            <p className="text-base text-white/80 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-base text-white/80 leading-relaxed lg:ml-auto">
               empr.es is renderer agnostic at its core, but it also comes with an official PixiJS runtime
               for building production-ready 2D browser games.
             </p>
 
-            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto">
               @empr/es-lienzo bridges the architectural core of empr.es with the PixiJS scene graph.
               It connects entities to Pixi containers, provides declarative view construction, manages assets,
               drives animations through the game loop and keeps rendering lifecycle aligned with the framework.

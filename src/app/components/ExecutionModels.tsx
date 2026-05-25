@@ -52,7 +52,7 @@ export function ExecutionModels() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Split Layout */}
-        <div className="mb-16 grid lg:grid-cols-[450px_1fr] gap-12 items-center">
+        <div className="mb-16 grid lg:grid-cols-[450px_1fr] gap-64 items-center">
           {/* Left: Animated Technical SVG */}
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
