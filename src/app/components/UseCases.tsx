@@ -68,7 +68,7 @@ export function UseCases() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Left-aligned Intro + Right SVG */}
-        <div className="mb-16 grid lg:grid-cols-[1fr_350px] gap-12 items-center">
+        <div className="mb-16 grid lg:landscape:grid-cols-[1fr_350px] gap-12 items-center">
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ export function UseCases() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
+            className="hidden lg:landscape:block relative h-[320px]"
           >
             <svg className="w-full h-full" viewBox="0 0 350 320">
               {/* Background guide lines */}

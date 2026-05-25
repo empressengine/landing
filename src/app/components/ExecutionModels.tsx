@@ -43,16 +43,8 @@ export function ExecutionModels() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Split Layout */}
-        <div className="mb-16 grid lg:grid-cols-[450px_1fr] gap-64 items-center">
-          {/* Left: Animated Technical SVG */}
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[280px]"
-          > */}
-            <svg className="w-full h-full" viewBox="0 0 300 280">
+        <div className="mb-16 grid lg:landscape:grid-cols-[450px_1fr] gap-12 lg:landscape:gap-64 items-center">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 300 280">
               {/* Background guide grid */}
               <line x1="0" y1="70" x2="300" y2="70" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="140" x2="300" y2="140" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -185,8 +177,7 @@ export function ExecutionModels() {
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2.8 }}
               />
-            </svg>
-          {/* </motion.div> */}
+          </svg>
 
           {/* Right: Intro Text */}
           <motion.div

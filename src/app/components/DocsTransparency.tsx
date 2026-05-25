@@ -34,16 +34,8 @@ export function DocsTransparency() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
-        <div className="mb-16 grid lg:grid-cols-[450px_1fr] gap-64 items-center">
-          {/* Left: Animated Architecture Transparency Diagram */}
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]" */}
-          {/* > */}
-            <svg className="w-full h-full" viewBox="0 0 340 320">
+        <div className="mb-16 grid lg:landscape:grid-cols-[450px_1fr] gap-12 lg:landscape:gap-64 items-center">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 340 320">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="340" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="160" x2="340" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -181,8 +173,7 @@ export function DocsTransparency() {
                 animate={{ width: [0, 160, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
-            </svg>
-          {/* </motion.div> */}
+          </svg>
 
           {/* Right: Intro Text */}
           <motion.div

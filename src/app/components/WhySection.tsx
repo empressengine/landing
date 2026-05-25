@@ -35,7 +35,7 @@ export function WhySection() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header with visual accent */}
-        <div className="mb-12 grid lg:grid-cols-[1fr_600px] gap-12 items-center">
+        <div className="mb-12 grid lg:landscape:grid-cols-[1fr_600px] gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,15 +63,7 @@ export function WhySection() {
             </p>
           </motion.div>
 
-          {/* Small animated technical graphic */}
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[240px]"
-          > */}
-            <svg className="w-full h-full" viewBox="0 0 360 240">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 360 240">
               {/* Background guide lines */}
               <line x1="0" y1="120" x2="360" y2="120" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="180" y1="0" x2="180" y2="240" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -275,8 +267,7 @@ export function WhySection() {
                 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 0.5 }}
               />
-            </svg>
-          {/* </motion.div> */}
+          </svg>
         </div>
 
         {/* Unified Comparison Panel */}

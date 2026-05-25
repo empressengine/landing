@@ -35,7 +35,7 @@ export function FlowControl() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Intro + Animated FSM Diagram */}
-        <div className="mb-16 grid lg:grid-cols-[1fr_500px] gap-12 items-center">
+        <div className="mb-16 grid lg:landscape:grid-cols-[1fr_500px] gap-12 items-center">
           {/* Left: Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,15 +58,7 @@ export function FlowControl() {
             </p>
           </motion.div>
 
-          {/* Right: Animated State Machine Diagram */}
-          {/* <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative h-[320px]"
-          > */}
-            <svg className="w-full h-full" viewBox="0 0 400 320">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 400 320">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="400" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="160" x2="400" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -247,8 +239,7 @@ export function FlowControl() {
                   begin="1s"
                 />
               </motion.circle>
-            </svg>
-          {/* </motion.div> */}
+          </svg>
         </div>
 
         {/* Bottom: Control Panels (2x2 grid) */}

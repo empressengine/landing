@@ -32,7 +32,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:landscape:grid-cols-2 gap-16 lg:landscape:gap-24 items-center">
           {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="hidden lg:landscape:block relative"
           >
             <div className="relative overflow-hidden">
               <RuntimePanel />
