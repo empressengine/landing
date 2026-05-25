@@ -3,6 +3,17 @@
   width: auto;
 }
 
+.docusaurus-mermaid-container {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
 :root {
   --ifm-color-primary: #ff2d6e;
   --ifm-color-primary-dark: #fa0050;

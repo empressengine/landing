@@ -4,14 +4,28 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'empr.es',
-  tagline: 'Architecture documentation',
+  tagline: 'empr.es documentation',
   favicon: 'img/favicon.png',
   url: 'https://empr.es',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: { defaultLocale: 'en', locales: ['en'] },
-  markdown: { format: 'md' },
+  markdown: { format: 'md', mermaid: true },
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        docsRouteBasePath: '/',
+        indexBlog: false,
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
   presets: [
     [
       'classic',
@@ -45,6 +59,24 @@ const config: Config = {
           position: 'left',
           label: 'Architecture',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'featuresSidebar',
+          position: 'left',
+          label: 'Features',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'apiSidebar',
+          position: 'left',
+          label: 'API',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'licenseSidebar',
+          position: 'left',
+          label: 'License',
+        },
       ],
     },
     footer: {
@@ -54,6 +86,9 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    mermaid: {
+      theme: { dark: 'dark' },
     },
   } satisfies Preset.ThemeConfig,
 };
