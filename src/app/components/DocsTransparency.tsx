@@ -35,7 +35,7 @@ export function DocsTransparency() {
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Top: Animated SVG + Right-aligned Intro */}
         <div className="mb-16 grid lg:landscape:grid-cols-[450px_1fr] gap-12 lg:landscape:gap-64 items-center">
-          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 340 320">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="25 30 290 255">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="340" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="160" x2="340" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />

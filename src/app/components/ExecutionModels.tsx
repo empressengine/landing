@@ -44,7 +44,7 @@ export function ExecutionModels() {
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Split Layout */}
         <div className="mb-16 grid lg:landscape:grid-cols-[450px_1fr] gap-12 lg:landscape:gap-64 items-center">
-          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 300 280">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="35 50 250 180">
               {/* Background guide grid */}
               <line x1="0" y1="70" x2="300" y2="70" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="140" x2="300" y2="140" stroke="white" strokeOpacity="0.03" strokeWidth="1" />

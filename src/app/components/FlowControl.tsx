@@ -58,7 +58,7 @@ export function FlowControl() {
             </p>
           </motion.div>
 
-          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 400 320">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="25 45 350 230">
               {/* Background guide lines */}
               <line x1="0" y1="80" x2="400" y2="80" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="0" y1="160" x2="400" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />

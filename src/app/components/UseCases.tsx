@@ -98,7 +98,7 @@ export function UseCases() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:landscape:block relative h-[320px]"
           >
-            <svg className="w-full h-full" viewBox="0 0 350 320">
+            <svg className="w-full h-full" viewBox="25 45 300 250">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="350" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <circle cx="175" cy="160" r="100" stroke="white" strokeOpacity="0.02" strokeWidth="1" fill="none" />

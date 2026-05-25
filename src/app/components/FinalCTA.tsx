@@ -42,7 +42,7 @@ export function FinalCTA() {
             </p>
           </motion.div>
 
-          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 360 320">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="35 75 300 170">
               {/* Background guide lines */}
               <line x1="0" y1="160" x2="360" y2="160" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <circle cx="80" cy="160" r="100" stroke="white" strokeOpacity="0.02" strokeWidth="1" fill="none" />

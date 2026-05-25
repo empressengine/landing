@@ -63,7 +63,7 @@ export function WhySection() {
             </p>
           </motion.div>
 
-          <svg className="hidden lg:landscape:block w-full h-full" viewBox="0 0 360 240">
+          <svg className="hidden lg:landscape:block w-full h-full" viewBox="20 35 320 175">
               {/* Background guide lines */}
               <line x1="0" y1="120" x2="360" y2="120" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
               <line x1="180" y1="0" x2="180" y2="240" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
