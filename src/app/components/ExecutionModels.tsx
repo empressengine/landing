@@ -38,7 +38,7 @@ export function ExecutionModels() {
   ];
 
   return (
-    <section className="relative px-6 lg:px-12 py-24 border-t border-white/5">
+    <section className="relative px-6 lg:px-12 py-24">
       {/* Background grid */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -52,15 +52,15 @@ export function ExecutionModels() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto">
         {/* Header - Split Layout */}
-        <div className="mb-16 grid lg:grid-cols-[300px_1fr] gap-12 items-center">
+        <div className="mb-16 grid lg:grid-cols-[450px_1fr] gap-12 items-center">
           {/* Left: Animated Technical SVG */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block relative h-[280px]"
-          >
+          > */}
             <svg className="w-full h-full" viewBox="0 0 300 280">
               {/* Background guide grid */}
               <line x1="0" y1="70" x2="300" y2="70" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
@@ -68,8 +68,8 @@ export function ExecutionModels() {
               <line x1="0" y1="210" x2="300" y2="210" stroke="white" strokeOpacity="0.03" strokeWidth="1" />
 
               {/* Input node */}
-              <circle cx="50" cy="140" r="6" fill="#E30049" fillOpacity="0.6" />
-              <circle cx="50" cy="140" r="16" stroke="#E30049" strokeWidth="1" strokeOpacity="0.3" fill="none" />
+              <circle cx="66" cy="140" r="6" fill="#E30049" fillOpacity="0.6" />
+              <circle cx="66" cy="140" r="16" stroke="#E30049" strokeWidth="1" strokeOpacity="0.3" fill="none" />
 
               {/* Branching paths */}
               <motion.path
@@ -171,31 +171,31 @@ export function ExecutionModels() {
 
               {/* Signal pulses */}
               <motion.circle
-                cx="50" cy="140"
+                cx="66" cy="140"
                 r="3"
                 fill="#E30049"
                 fillOpacity="0.8"
                 animate={{
-                  cx: [50, 120, 250],
+                  cx: [66, 120, 250],
                   cy: [140, 70, 140],
                   opacity: [0.8, 0.6, 0]
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2 }}
               />
               <motion.circle
-                cx="50" cy="140"
+                cx="66" cy="140"
                 r="3"
                 fill="#E30049"
                 fillOpacity="0.8"
                 animate={{
-                  cx: [50, 120, 250],
+                  cx: [66, 120, 250],
                   cy: [140, 140, 140],
                   opacity: [0.8, 0.6, 0]
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: 2.8 }}
               />
             </svg>
-          </motion.div>
+          {/* </motion.div> */}
 
           {/* Right: Intro Text */}
           <motion.div
@@ -203,7 +203,7 @@ export function ExecutionModels() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 lg:text-right"
+            className="space-y-6"
           >
             <h2 className="text-4xl lg:text-6xl text-white tracking-tight">
               Pipelines vs Orchestrators
@@ -213,10 +213,19 @@ export function ExecutionModels() {
               Architecture defines how you structure your game. Execution defines how your game actually runs.
             </p>
 
-            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto max-w-2xl">
+            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto ">
               empr.es provides two execution models for two different ways of thinking about game logic:
               Pipelines for ECS projects and Orchestrators for Component Driven projects.
             </p>
+
+            <p className="text-xl text-white/90 tracking-tight">
+            Same core, <span className="text-[#E30049]">different execution strategy</span>.
+            </p>
+
+            <p className="text-sm text-white/50 leading-relaxed lg:ml-auto ">
+            Both models work with the same empr.es foundation: entities · components · dependency injection · FSM · signals · lifecycle tracking · renderer-independent logic.
+            </p>
+            
           </motion.div>
         </div>
 
@@ -364,7 +373,7 @@ export function ExecutionModels() {
         </div>
 
         {/* Bottom Shared Foundation */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -381,10 +390,8 @@ export function ExecutionModels() {
             </p>
           </div>
 
-          {/* Divider */}
           <div className="h-px bg-white/10" />
 
-          {/* Decision Cards */}
           <div className="grid md:grid-cols-2 gap-px bg-white/5">
             <div className="p-6 bg-black space-y-2">
               <h5 className="text-base text-white font-medium tracking-tight">
@@ -404,7 +411,7 @@ export function ExecutionModels() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
