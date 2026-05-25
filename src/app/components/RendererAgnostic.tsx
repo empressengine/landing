@@ -72,7 +72,7 @@ export function RendererAgnostic() {
         </motion.div>
 
         {/* Architecture Board */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,7 +80,6 @@ export function RendererAgnostic() {
           className="mb-12 max-w-4xl mx-auto"
         >
           <div className="border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg overflow-hidden">
-            {/* Core Runtime Layer */}
             <div className="p-8 text-center border-b border-[#E30049]/20 bg-gradient-to-b from-[#E30049]/[0.03] to-transparent">
               <div className="text-xs text-[#E30049]/80 tracking-wider uppercase mb-4">Core Runtime</div>
               <div className="flex flex-wrap justify-center gap-3">
@@ -95,7 +94,6 @@ export function RendererAgnostic() {
               </div>
             </div>
 
-            {/* Adapter Layer */}
             <div className="p-6 text-center bg-black/40 border-b border-white/10">
               <div className="text-xs text-white/40 tracking-wider uppercase mb-4">Adapter Layer</div>
               <div className="flex flex-wrap justify-center gap-3">
@@ -111,7 +109,6 @@ export function RendererAgnostic() {
               </div>
             </div>
 
-            {/* Rendering / Runtime Targets Layer */}
             <div className="p-8 text-center">
               <div className="text-xs text-white/40 tracking-wider uppercase mb-4">Rendering / Runtime Targets</div>
               <div className="flex flex-wrap justify-center gap-3">
@@ -126,9 +123,8 @@ export function RendererAgnostic() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
-        {/* 3-Panel System Board */}
         <div className="grid lg:grid-cols-3 gap-6">
           {panels.map((panel, i) => (
             <motion.div
@@ -139,22 +135,18 @@ export function RendererAgnostic() {
               transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
             >
               <div className="h-full border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg p-6 hover:border-white/20 transition-all duration-300">
-                {/* Title */}
                 <h3 className="text-lg text-white mb-3 tracking-tight font-medium">
                   {panel.title}
                 </h3>
 
-                {/* Statement */}
                 <p className="text-sm text-white/80 mb-3 leading-relaxed">
                   {panel.statement}
                 </p>
 
-                {/* Description */}
                 <p className="text-sm text-white/50 leading-relaxed mb-4">
                   {panel.description}
                 </p>
 
-                {/* Chips */}
                 <div className="pt-3 border-t border-white/10">
                   <div className="flex flex-wrap gap-2">
                     {panel.chips.map((chip) => (
