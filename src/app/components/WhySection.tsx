@@ -271,14 +271,13 @@ export function WhySection() {
         </div>
 
         {/* Unified Comparison Panel */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-sm rounded-lg overflow-hidden"
         >
-          {/* Column Headers */}
           <div className="grid grid-cols-2 gap-px bg-white/5">
             <div className="px-6 py-3 bg-black">
               <span className="text-xs text-white/40 tracking-wider uppercase">Problem</span>
@@ -288,10 +287,8 @@ export function WhySection() {
             </div>
           </div>
 
-          {/* Divider */}
           <div className="h-px bg-white/10" />
 
-          {/* Comparison Rows */}
           <div className="divide-y divide-white/5">
             {problemSolutionPairs.map((pair, i) => (
               <motion.div
@@ -302,14 +299,12 @@ export function WhySection() {
                 transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
                 className="grid grid-cols-2 gap-px bg-white/5 group hover:bg-white/10 transition-colors duration-300"
               >
-                {/* Problem */}
                 <div className="px-6 py-4 bg-black">
                   <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/50 transition-colors">
                     {pair.problem}
                   </p>
                 </div>
 
-                {/* Solution */}
                 <div className="px-6 py-4 bg-black">
                   <p className="text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">
                     {pair.solution}
@@ -318,7 +313,7 @@ export function WhySection() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

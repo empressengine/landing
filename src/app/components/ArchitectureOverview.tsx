@@ -81,7 +81,7 @@ export function ArchitectureOverview() {
       </div>
 
       {/* Architecture flow strip */}
-      <div className="max-w-[1600px] mx-auto mb-12">
+      {/* <div className="max-w-[1600px] mx-auto mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,8 +104,6 @@ export function ArchitectureOverview() {
               </div>
             </div>
           </div>
-
-          {/* Supporting text */}
           <div className="mt-6 text-center">
             <p className="text-sm text-white/50 leading-relaxed max-w-4xl mx-auto">
               Entities, components, storage, dependency injection, reactive state, FSM, signals, lifecycle tracking
@@ -113,7 +111,7 @@ export function ArchitectureOverview() {
             </p>
           </div>
         </motion.div>
-      </div>
+      </div> */}
 
       {/* Architecture grid */}
       <div className="max-w-[1600px] mx-auto">
