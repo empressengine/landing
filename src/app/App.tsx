@@ -13,25 +13,29 @@ import { UseCases } from "./components/UseCases";
 import { DocsTransparency } from "./components/DocsTransparency";
 import { Roadmap } from "./components/Roadmap";
 import { FinalCTA } from "./components/FinalCTA";
+import { BackgroundGrid } from "./components/BackgroundGrid";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
-      <Hero />
-      <ArchitectureOverview />
-      <WhySection />
-      <ArchitectureChoice />
-      <ExecutionModels />
-      <FlowControl />
-      <RendererAgnostic />
-      <PixiJSRuntime />
-      <BuiltForProduction />
-      <Ecosystem />
-      <UseCases />
-      <DocsTransparency />
-      <Roadmap />
-      <FinalCTA />
+      <BackgroundGrid />
+      <div className="relative z-10">
+        <Header />
+        <Hero />
+        <ArchitectureOverview />
+        <WhySection />
+        <ArchitectureChoice />
+        <ExecutionModels />
+        <FlowControl />
+        <RendererAgnostic />
+        <PixiJSRuntime />
+        <BuiltForProduction />
+        <Ecosystem />
+        <UseCases />
+        <DocsTransparency />
+        <Roadmap />
+        <FinalCTA />
+      </div>
     </div>
   );
 }
