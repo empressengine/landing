@@ -62,7 +62,7 @@ declare module '@empr/es-componente' {
 }
 ```
 
-Reference: `apps/slot-cd-client/src/app/types/empr-es.componente.d.ts`.
+Reference: `empr-es.componente.d.ts`.
 
 ---
 
@@ -262,7 +262,7 @@ class MyComponent extends EmprComponent<IMyProps> {
 
 | Module | Usage |
 |--------|--------|
-| `apps/slot-cd-client` | `SymbolComponent`, `ReelComponent`, `ResizerComponent`, … |
+| `component-driven app` | `SymbolComponent`, `ReelComponent`, `ResizerComponent`, … |
 | `core/orchestrator` | Discovers components, runs DI |
 | `core/dependency/inject.decorator` | `instanceof EmprComponent` branch |
 

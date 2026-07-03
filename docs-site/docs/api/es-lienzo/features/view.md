@@ -12,6 +12,9 @@ import {
   View,
   ViewFactory,
   ViewData,
+  ViewArgs,
+  InstantiateLayout,
+  InstantiateArgs,
   InstantiateOptions,
   IParentable,
   instantiate,
@@ -24,9 +27,12 @@ import { View, ViewFactory, instantiate, deinstantiate } from './features/view';
 | Export | Source | Description |
 |--------|--------|-------------|
 | `View` | `view.ts` | Fluent builder compiling to `TreeNode` |
-| `ViewFactory<T>` | `view.types.ts` | `(view, props) => void` scene blueprint callback |
-| `ViewData<T>` | `view.types.ts` | Infers props type from a `ViewFactory` |
-| `InstantiateOptions<T>` | `view.types.ts` | `parent`, `x`, `y`, plus factory props |
+| `ViewFactory<T>` | `view.types.ts` | `(view, props?) => void` scene blueprint callback; default `T = void` |
+| `ViewData<F>` | `view.types.ts` | Infers props type from a `ViewFactory` |
+| `ViewArgs<F>` | `view.types.ts` | Conditional tuple for `ofView` (mirrors `SystemArgs`) |
+| `InstantiateLayout` | `view.types.ts` | `parent`, `x`, `y` (partial) |
+| `InstantiateOptions<T>` | `view.types.ts` | `InstantiateLayout` merged with factory props |
+| `InstantiateArgs<F>` | `view.types.ts` | `[options?]` or `[options]` with conditional required props |
 | `IParentable` | `view.types.ts` | `{ parent: PixiEntity }` |
 | `instantiate` | `instantiate.ts` | Factory → `TreeBuilder.create` → `PixiEntity` |
 | `deinstantiate` | `deinstantiate.ts` | `EntityStorage.destroyEntity` facade |
@@ -177,20 +183,16 @@ Stateful builder; `private _config!: TreeNode`. Must call `ofType`, `ofView`, or
 | Method | Description |
 |--------|-------------|
 | `ofType(type, name?)` | Start or replace root; `type` is `NodeType` from tree-builder |
-| `ofView(factory, props?)` | Embed another factory’s output as root config |
+| `ofView(factory, ...ViewArgs)` | Embed factory output; props required when `ViewData<F>` is not `void` |
 | `ofConfig(config)` | Assign full `TreeNode` (use for `AxisContainer`, `NineSlicePlane`, imports) |
 | `name(name)` | Set / change `name` |
 
-**`NodeType` covers:** `Container`, `Sprite`, `Text`, `BitmapText`, `Spine`, `NineSlicePlane` — **not** `AxisContainer`. For axis layout:
+**`NodeType` covers:** `Container`, `Sprite`, `Text`, `BitmapText`, `Spine`, `NineSlicePlane` — **not** `AxisContainer` or `FitContainer`. For layout containers use `ofType` directly (they are registered `ViewType` constructors, accepted by `ofType`):
 
 ```typescript
-view.ofConfig({
-  type: AxisContainer,
-  name: 'toolbar',
-  gap: 12,
-  children: [],
-});
-// or in addChild:
+view.ofType(AxisContainer, 'toolbar').gap(12);
+view.ofType(FitContainer, 'valueBox').width(260).height(70);
+// or via ofConfig for raw objects:
 .addChild((c) => c.ofConfig({ type: AxisContainer, name: 'row', gap: 8 }))
 ```
 
@@ -205,6 +207,7 @@ view.ofConfig({
 | `pivot(x, y)` | `pivot` |
 | `visible` / `alpha` | `visible`, `alpha` |
 | `rotation` / `angle` | `rotation`, `angle` |
+| `skew(x, y)` | `skew` — applied via `skew.set(x, y)` at build |
 
 ### Layers & sorting
 
@@ -271,8 +274,38 @@ Wrong node type → `throw new Error('... can only be set on ...')`.
 | `loop(count)` | Spine lane `loop` |
 | `timeScale(value)` | Spine lane time scale |
 | `key(key)` | Spine chain name prefix |
+| `track(index, name, options?)` | Multi-track declarative animation (parallel lanes) |
+| `attachToSlot(slotName, callback, options?)` | Mount a Pixi subtree in a Spine bone slot at build time (see below) |
 
 Atlas convention at build: `${asset}Atlas` (see [`tree-builder` spine behaviour``spine-builder.behaviour.ts``).
+
+#### `attachToSlot(slotName, callback, options?)`
+
+```typescript
+view.ofType(Spine, 'bigWinFX')
+    .spine('bigWins')
+    .initialAnimation('big/idle')
+    .loop(-1)
+    .attachToSlot('placeholder_counter', (child) => {
+        child.ofType(BitmapText, 'counter')
+            .text('0')
+            .ref(counterRef)
+            .bitmapTextStyle({ fontName: 'placeholder_counter', fontSize: 100 });
+    }, { clearExisting: true });
+```
+
+| Constraint | Behavior |
+|------------|----------|
+| Only on `Spine` nodes | Throws otherwise |
+| Duplicate `slotName` | Throws at config time |
+| Unknown slot name | Throws at `TreeBuilder` build time (`skeleton.findSlot` check) |
+| `clearExisting: true` | `slot.setAttachment(null)` before mount — removes artist placeholder |
+| `clearExisting: false` (default) | Original Spine attachment and Pixi child coexist |
+| Slot child + `ref` | Works identically to regular nodes |
+| Slot child parent | **Not** added to spine's ECS/Pixi children — `addSlotObject` only |
+| Cleanup | `removeSlotObject` on spine `destroy` |
+
+Multiple slots: chain multiple `.attachToSlot` calls with different names.
 
 ### Nine-slice
 
@@ -288,6 +321,33 @@ Atlas convention at build: `${asset}Atlas` (see [`tree-builder` spine behaviour`
 | `gap(n)` | `gap` |
 | `justifyContent('start' \| 'center' \| 'end')` | Main axis |
 | `alignItems('start' \| 'center' \| 'end')` | Cross axis |
+
+### FitContainer layout
+
+| Method | Valid when `type === FitContainer` | Description |
+|--------|-------------------------------------|-------------|
+| `width(n)` | ✓ | Sets logical fit width (bypasses Pixi scale semantics) |
+| `height(n)` | ✓ | Sets logical fit height (bypasses Pixi scale semantics) |
+| `minScale(n)` | ✓ | Lower clamp for computed uniform scale |
+| `maxScale(n)` | ✓ | Upper clamp for computed uniform scale |
+| `justifyContent('start' \| 'center' \| 'end')` | `AxisContainer` **or** `FitContainer` | Horizontal content alignment |
+| `alignItems('start' \| 'center' \| 'end')` | `AxisContainer` **or** `FitContainer` | Vertical content alignment |
+| `autoUpdate(bool)` | ✓ | Enable/disable per-frame bounds tracking in `updateTransform` |
+| `debugBounds(color?, alpha?)` | ✓ | Render semi-transparent fit-area overlay (dev only) |
+
+```typescript
+view.ofType(FitContainer, 'jackpotPanelValueBox')
+    .width(260)
+    .height(70)
+    .minScale(0.6)
+    .maxScale(1.0)
+    .justifyContent('center')
+    .alignItems('center')
+    .debugBounds(0x00ff88, 0.2)  // remove before production
+    .addChild((view) => {
+        view.ofType(BitmapText, 'value').text('1,000,000');
+    });
+```
 
 ### ECS components on schema
 
@@ -430,7 +490,7 @@ factory: () => instantiate(symbolView, { id: SymbolId.Cherry, type: 'cherry' }),
 |--------|--------|
 | `features/scene/scene.ts` | `instantiate` for view/shared |
 | `features/view/instantiate.ts` | Core facade |
-| `apps/slot-client` / `slot-cd-client` `*.view.ts` | `ViewFactory` definitions |
+| `apps/slot-client` `*.view.ts` | `ViewFactory` definitions |
 | `apps/slot-client/.../scene-*-*.system.ts` | `ViewFactory` → `Scene` |
 | `widgets/pixi-pools` | `instantiate` in pool factories |
 | `widgets/prefab-service` | `PrefabFactory` mutates `View` |

@@ -360,7 +360,7 @@ resetLayer:   parentGroup = undefined → sortAll()
 | `features/tree-builder/behaviours/abstract-builder.behaviour.ts` | `getGroup(options.parentGroup)` |
 | `features/view/view.ts` | Fluent `.parentGroup(name)` on config |
 | `apps/slot-client/.../empr.game.ts` | `setupLayers()` — `createGroup(RenderLayer.*)` |
-| `apps/slot-cd-client/.../empr.game.ts` | Same layer bootstrap pattern |
+| `component-driven app bootstrap` | Same layer bootstrap pattern |
 
 `setLayer` / `resetLayer` are public API for runtime moves; current monorepo usage prefers declarative `parentGroup` at build time.
 

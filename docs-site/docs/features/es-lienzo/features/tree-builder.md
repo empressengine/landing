@@ -45,6 +45,14 @@ _Result:_ Eliminates code duplication. Any new visual component automatically re
 The engine provides a custom `AxisContainer` node that automatically aligns child elements linearly (horizontally or vertically) with specific gaps and justifications.
 _Result:_ Drastically simplifies the creation of dynamic UI components (lists, button panels) by removing the need for manual pixel coordinate recalculations when screen content changes.
 
+### 6) Scale-to-Fit Layout Container (FitContainer)
+
+`FitContainer` uniformly scales its children to fit within a declared `fitWidth` × `fitHeight` area, following CSS `object-fit: contain` semantics. Scale is clamped to `[minScale, maxScale]`, and content is aligned via `justifyContent` / `alignItems`. Recalculation is debounced via `waitNextFrame`; optional `autoUpdate` detects child bounds changes in `updateTransform` without manual calls.
+
+A critical implementation detail: Pixi's default `Container.width` setter rewrites the container's own scale rather than storing a logical size. `FitContainer` overrides `get/set width` and `get/set height` to store `_fitWidth` / `_fitHeight` as explicit bounds, completely bypassing Pixi's built-in scaling. `FitContainerBuilderBehaviour` must therefore **not** delegate to `setCommonData` for width/height.
+
+_Result:_ Dynamic text and UI elements that can grow or shrink at runtime (e.g. currency values, localised strings) stay visually contained without per-frame imperative scale corrections in game systems.
+
 ### 4) Two-Tier Lifecycle: `removed` vs `destroy`
 
 The builder wires two separate PixiJS `Container` events to two semantically distinct ECS operations:
@@ -63,17 +71,32 @@ _Result:_ Prevents asynchronous race conditions. The visual tree is guaranteed t
 
 - **Classes:**
     - `TreeBuilder`: The main visual factory service.
-    - `AxisContainer`: Custom PIXI container supporting auto-layout.
+    - `AxisContainer`: Custom PIXI container supporting flex-like auto-layout.
+    - `FitContainer`: Custom PIXI container that uniformly scales children to fit declared bounds.
     - `AbstractBuilderBehaviour`: Base class for custom node parsers.
 - **Interfaces & Types:**
     - `TreeNode`: Union type describing any valid configuration node.
     - `IBuilderBehaviour<T>`: Factory contract for a specific node.
     - `IBuilderResult`: Output structure containing the native `view` and ECS `entity`.
-    - _Options_: `IContainerOptions`, `ISpriteOptions`, `ISpineOptions`, etc..
+    - `IDebugBoundsOptions`: Shared debug overlay color/alpha config.
+    - _Options_: `IContainerOptions`, `IAxisContainerOptions`, `IFitContainerOptions`, `ISpriteOptions`, `ISpineOptions`, etc..
 - **Signals:**
     - `OnViewCreatedSignal` — dispatched after full subtree construction (next frame).
     - `OnViewDestroyedSignal` — dispatched on permanent container destruction.
     - `OnViewRemovedSignal` — dispatched when a container is detached from its parent without being destroyed (non-destructive release, supports pooling).
+
+### 7) Spine Slot Attachments
+
+`ISpineOptions` accepts an optional `slotAttachments` array — each entry pairs a Spine slot name with a declarative `TreeNode` child subtree. When present, `TreeBuilder` performs a two-phase build:
+
+1. **Phase 1** — `SpineBuilderBehaviour.createSpineView()` instantiates the Spine object and applies common data (name, transform, visibility) without starting any animation.
+2. **Phase 2** — Slot child entities are created via `TreeBuilder.create()` *without a scene-graph parent*, so they never appear as ECS or Pixi children of the Spine entity. After construction, `SpineBuilderBehaviour.finalizeSpine()` applies skin, calls `spine.addSlotObject(slotName, child)` for each slot, then starts the declarative animation chain.
+
+Slot objects are removed via `spine.removeSlotObject` in the spine container's `destroy` hook, ensuring clean teardown. This mechanism is independent of `SpineChain.attachToSlot` / `SpineLane.attachToSlot`, which serve the runtime animation-lifecycle attach pattern.
+
+Each `ISpineSlotAttachment` entry supports an optional `clearExisting` flag. When `true`, `mountSlotObjects` calls `slot.setAttachment(null)` before `addSlotObject` to erase any artist placeholder left in the skeleton file. Default: `false` (both layers coexist).
+
+The `View` DSL exposes `.attachToSlot(slotName, callback, options?)` on Spine nodes for declarative slot configuration. See `view/.artifacts/slot-attach-design.md` for the full technical design.
 
 ## Current scope and boundaries
 

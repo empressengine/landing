@@ -269,7 +269,7 @@ await loadAssets();
 scene.setView(MainGameView);
 ```
 
-### Orchestrator (slot-cd-client)
+### Orchestrator (component-driven app)
 
 ```typescript
 this._scene.setView(preloaderView);
@@ -351,8 +351,8 @@ Creates empty `Container` + `PixiEntity`, sets `container.name`, `parent.addChil
 | `apps/slot-client/.../scene-add-shared.system.ts` | `addShared` |
 | `apps/slot-client/.../initialization.pipeline.ts` | Preloader view |
 | `apps/slot-client/.../main-game.pipeline.ts` | Main game view |
-| `apps/slot-cd-client/.../initialization.orchestrator.ts` | `setView(preloaderView)` |
-| `apps/slot-cd-client/.../empr.game.ts` | Injects `Scene` |
+| `component-driven initialization orchestrator` | `setView(preloaderView)` |
+| `component-driven app bootstrap` | Injects `Scene` |
 
 Wrapper systems are **host-owned**; copy patterns from `apps/slot-client/src/shared/scenes/` when adding new apps.
 

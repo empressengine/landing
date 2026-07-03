@@ -333,7 +333,7 @@ storage.clearQueries('update-pipeline');
 | `dispose` | N/A | Via `clearQueries` or manual on uncached instances |
 | `filter.each` | Evaluated in `_slowFilter` | Not supported |
 
-Full iteration contract: [`core/filtered/API_DOC.md`](/docs/api/es/core/filtered).
+Full iteration contract: ](/docs/api/es/core/filtered).
 
 ---
 

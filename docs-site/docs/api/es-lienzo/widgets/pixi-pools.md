@@ -323,7 +323,7 @@ flowchart LR
 | `apps/slot-client/.../symbol-create-pool.system.ts` | `createPool` per symbol id |
 | `apps/slot-client/.../slot-create-symbols.system.ts` | `inject(PixiPools)` |
 | `apps/slot-client/.../reel.service.ts` | Constructor injection |
-| `apps/slot-cd-client/.../initialization.orchestrator.ts` | `@Inject(PixiPools)` |
+| `component-driven initialization orchestrator` | `@Inject(PixiPools)` |
 | `apps/slot-client/.../empr.game.ts` | `ReelService(pixiPools)` |
 
 For generic non-Pixi pooling, use `@empr/es` `Pools` instead of this widget.

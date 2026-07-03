@@ -271,7 +271,7 @@ empr.dependency.inject(InteractionService).setExecutionRegistry(
 empr.start(new RafUpdateStrategy());
 ```
 
-Reference implementation: `apps/slot-client/src/app/bootstrap/empr.game.ts`, `apps/slot-cd-client/src/app/bootstrap/empr.game.ts`.
+Reference implementation: `apps/slot-client/src/app/bootstrap/empr.game.ts`, `component-driven app bootstrap`.
 
 ---
 
@@ -319,7 +319,7 @@ EmprLienzo adds
 | Module | Usage |
 |--------|--------|
 | `apps/slot-client/.../empr.game.ts` | `new EmprLienzo`, `init`, `start`, extends DI |
-| `apps/slot-cd-client/.../empr.game.ts` | Same pattern |
+| `component-driven app bootstrap` | Same pattern |
 | `apps/*/render.ts` | Documents `EmprLienzo` + Pixi ticker disable |
 | `es-componente` / `es-sistema` docs | `useECSBackend` + `EmprLienzo` examples |
 

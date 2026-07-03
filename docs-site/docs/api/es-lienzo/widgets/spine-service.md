@@ -186,6 +186,7 @@ interface ISpineRunDescriptor {
   animationName: string;
   track: number;
   delay: number;
+  frequency: number;
   timeScale: number;
   /** -1 = infinite, 1 = once, N = N complete iterations */
   loopCount: number;
@@ -217,9 +218,10 @@ Fluent builder created per `SpineLane.run()` call. All methods return `this`.
 | Method | Default | Description |
 |--------|---------|-------------|
 | `track(index)` | lane default | Override track for this run |
-| `delay(seconds)` | `0` | `TrackEntry.delay` on first run |
+| `delay(seconds)` | `0` | Delay before the first play of this run |
+| `frequency(seconds)` | `0` | Delay between finite `loop(N)` or manual infinite `loop(-1)` repetitions |
 | `timeScale(value)` | `1` | Multiplied by chain global multiplier at playback |
-| `loop(count)` | `1` | `-1` infinite; `N` = complete after N Spine `complete` events |
+| `loop(count)` | `1` | `-1` infinite; `N` = play N times |
 | `mixDuration(seconds)` | `0` | Crossfade on `addAnimation` (not first run with mix 0) |
 | `onStart(cb)` | — | Spine `start` |
 | `onComplete(cb)` | — | Spine `complete` (each loop iteration) |
@@ -229,7 +231,7 @@ Fluent builder created per `SpineLane.run()` call. All methods return `this`.
 | `build(defaultTrack)` | — | Returns `ISpineRunDescriptor` (internal) |
 
 ```typescript
-lane.run('walk', (o) => o.timeScale(1.5).loop(3).mixDuration(0.2).onEvent('footstep', onStep));
+lane.run('walk', (o) => o.timeScale(1.5).loop(3).frequency(0.5).onEvent('footstep', onStep));
 ```
 
 ---
@@ -267,7 +269,7 @@ Sequential queue for one `Spine` on one track. Created only via `SpinePhase.for(
 | `forceReset()` | `clearTrack` + `setToSetupPose` |
 | `dispose()` | Listener cleanup, detach slots, resolve deferreds |
 
-**Run sequencing:** First run uses `setAnimation` when `mixDuration === 0`; otherwise `addAnimation`. Finite runs chain via `runDeferred.promise.then(() => startRun(index + 1))`. Infinite runs never auto-advance the queue.
+**Run sequencing:** First play of the first run uses `setAnimation` when `mixDuration === 0`; otherwise `addAnimation`. Finite `loop(N)` runs queue N non-looping entries; `delay` applies before the first play and `frequency` applies only between repeats. Infinite `loop(-1)` without `frequency` uses one native looping entry; `loop(-1).frequency(seconds)` uses manual non-looping repeats scheduled after each `complete` event.
 
 ---
 
@@ -405,16 +407,18 @@ There is **no** public `get(id)` or lookup by name — keep the `SpineChain` ref
 ### `SpineLaneListener`
 
 - Implements `AnimationStateListener`; filters by `entry.trackIndex === descriptor.track`.
-- `complete`: increments loop counter; resolves `_deferred` when `loopCount` reached; `loopCount === -1` never resolves via this path.
-- `onComplete` callback fires on **each** Spine loop iteration.
+- `complete`: increments play counter for finite runs, resolves `_deferred` when `loopCount` plays are reached, and asks the lane to schedule the next manual infinite repeat when `loopCount === -1` with `frequency > 0`.
+- `onComplete` callback fires on **each** finite play, native infinite loop iteration, or manual infinite repeat.
 - Registered per run; removed before next run or on skip/dispose.
 
 ### First vs subsequent runs
 
 | Condition | Spine API |
 |-----------|-----------|
-| First run, `mixDuration === 0` | `state.setAnimation(track, name, isLoop)` |
-| Otherwise | `state.addAnimation(track, name, isLoop, delay)` + optional `entry.mixDuration` |
+| First play of first run, `mixDuration === 0` | `state.setAnimation(track, name, isLoop)` + optional `entry.delay` |
+| First play when queued or mixed | `state.addAnimation(track, name, isLoop, delay)` + optional `entry.mixDuration` |
+| Finite repeat | `state.addAnimation(track, name, false, frequency)` |
+| Manual infinite repeat | `state.addAnimation(track, name, false, frequency)` after each `complete` |
 
 Effective `entry.timeScale = descriptor.timeScale * chainMultiplier`.
 

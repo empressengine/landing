@@ -315,7 +315,7 @@ storage.addAsset({ name: `${baseName}_blur`, bundle: 'main', asset: blurTexture 
 | `tree-builder/behaviours/nine-slice-builder.behaviour.ts` | `getAsset<Texture>` |
 | `apps/slot-client/.../symbol.view.ts` | `inject(AssetsStorage)` |
 | `apps/slot-client/.../blur-generate.system.ts` | read + `addAsset` |
-| `apps/slot-cd-client/.../blur-generator.ts` | storage-backed blur registration |
+| `component-driven blur generator` | storage-backed blur registration |
 
 Ensure bundles are loaded via `AssetsLoader` before any consumer calls `getAsset` for those names.
 

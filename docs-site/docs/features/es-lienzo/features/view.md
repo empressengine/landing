@@ -45,6 +45,11 @@ _Result:_ Enables a Prefab composition pattern. If there is a base "Button" fact
 The builder includes `.ref(Ref)` and `.refCollection(RefCollection)` methods that automatically bind the generated configuration to global references from the `shared` layer.
 _Result:_ Game systems do not need to perform expensive traverses of the PixiJS scene graph to find an interactive element. The UI node registers itself to the requested reference exactly at the moment of creation.
 
+### 5) Declarative Spine Slot Attachments
+
+The `attachToSlot(slotName, callback, options?)` method allows placing a full Pixi subtree inside a Spine bone slot purely via DSL — no imperative `addSlotObject` call in game systems. The method validates the slot name, prevents duplicates, and stores the subtree as an `ISpineSlotAttachment` entry in `ISpineOptions`. `TreeBuilder` handles the two-phase build and lifecycle cleanup automatically.
+_Result:_ Eliminates the boilerplate of manually attaching and detaching Pixi objects to Spine slots. Features like jackpot counters or win meters defined in a designer-exported skeleton can be augmented with reactive Pixi text without modifying game systems.
+
 ## Public contracts in this feature
 
 - **Classes:**
@@ -56,6 +61,15 @@ _Result:_ Game systems do not need to perform expensive traverses of the PixiJS 
     - `ViewFactory<T>`: The signature for a custom UI factory callback.
     - `InstantiateOptions<T>`: Instantiation arguments, including parent linking and initial coordinates.
     - `IParentable`: Contract for specifying a parent `PixiEntity`.
+
+**Layout-specific fluent methods exposed by `View`:**
+
+| Node type | Methods |
+|-----------|---------|
+| `AxisContainer` | `isVertical()`, `gap()`, `justifyContent()`, `alignItems()` |
+| `FitContainer` | `minScale()`, `maxScale()`, `autoUpdate()`, `debugBounds()` |
+| Both layout types | `justifyContent()`, `alignItems()` |
+| `Spine` | `attachToSlot(slotName, callback, options?)` — declares a Pixi subtree to mount in a Spine bone slot at `TreeBuilder` build time; optional `{ clearExisting: true }` erases the artist placeholder before attaching |
 
 ## Current scope and boundaries
 

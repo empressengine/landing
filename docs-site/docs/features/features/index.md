@@ -89,7 +89,7 @@ graph TD
 
 ### `signal-service/`
 
-Bridges standalone `ISignal` instances to execution flows. `SignalService.setExecutionRegistry` must be called after the app wires `ExecutorComposerRegistry` or `ExecutorOrchestratorRegistry` (see `@empr/es` README **Execution stacks** and reference apps under `apps/slot-client` / `apps/slot-cd-client`).
+Bridges standalone `ISignal` instances to execution flows. `SignalService.setExecutionRegistry` must be called after the app wires `ExecutorComposerRegistry` or `ExecutorOrchestratorRegistry` (see `@empr/es` README **Execution stacks** and reference apps under `apps/slot-client` / `component-driven app`).
 
 Depends on: `@core/execution-registry`, `@shared/signal`.
 

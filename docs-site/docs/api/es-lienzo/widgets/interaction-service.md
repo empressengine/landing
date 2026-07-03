@@ -456,7 +456,7 @@ No manual `container.off` in game code.
 |--------|--------|
 | `bootstrap/empr.lienzo.ts` | `new InteractionService()`, `init()`, DI registration |
 | `apps/slot-client/.../empr.game.ts` | `setExecutionRegistry(executor)` |
-| `apps/slot-cd-client/.../empr.game.ts` | Same |
+| `component-driven app bootstrap` | Same |
 | `apps/*/types/empr-es.lienzo.d.ts` | `LienzoTypeRegistry` augmentation for `ISFlowAliasType` |
 
 Host apps register concrete `listen(...)` mappings in processes / scenes (not in the library package).

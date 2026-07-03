@@ -5,6 +5,10 @@ title: "@empr/es"
 
 # empr.es
 
+![version](https://img.shields.io/badge/version-0.9.4-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6%2B-3178c6?logo=typescript&logoColor=white)
+![license](https://img.shields.io/badge/license-Proprietary-lightgrey)
+
 **A TypeScript ECS framework for high-performance, modular game architecture.**
 
 ---
@@ -98,8 +102,8 @@ npm install @empr/es-sistema
 
 | Package | Role |
 | --- | --- |
-| `@empr/es-sistema` | **Default ECS stack** — `PipelineComposer`, `Executor`, `PipelineFactory`, `System` / `SystemProps`, and `useECSBackend(app)` to wire `Executor` + `ExecutorComposerRegistry` into `Empr` / `EmprLienzo` together with `FSMService`, `SignalService`, and `UpdateLoop` pause/resume. |
-| `@empr/es-componente` | **Component-driven alternative** — replace `es-sistema` (not stack both): `useCDBackend(app, sceneRootSource)` registers `ComponentDrivenExecutor` and `ExecutorOrchestratorRegistry` so the same `FSMService` / `SignalService` contracts use your CD registry. |
+| [@empr/es-sistema](./es-sistema/) | **Default ECS stack** — `PipelineComposer`, `Executor`, `PipelineFactory`, `System` / `SystemProps`, and `useECSBackend(app)` to wire `Executor` + `ExecutorComposerRegistry` into `Empr` / `EmprLienzo` together with `FSMService`, `SignalService`, and `UpdateLoop` pause/resume. |
+| [@empr/es-componente](./es-componente/) | **Component-driven alternative** — replace `es-sistema` (not stack both): `useCDBackend(app, sceneRootSource)` registers `ComponentDrivenExecutor` and `ExecutorOrchestratorRegistry` so the same `FSMService` / `SignalService` contracts use your CD registry. |
 
 Boundary rules for these packages are documented in `docs/plans/2026-04-28-empr-es-sistema-es-componente-design.md` (internal monorepo design doc). **`@empr/es` and `@empr/es-lienzo` do not depend on them** — your application adds exactly one execution stack.
 
@@ -602,6 +606,103 @@ For renderer integration, `empr.es` provides `INodeEntity<T>` and `NodeEntity<T>
 
 ---
 
+## Changelog
+
+### 0.9.4
+
+#### Removed: `PipelineProps.insert`
+
+`insert` (added in 0.9.1) has been deprecated and removed. Pipeline composition is achieved by calling child pipeline factories directly and forwarding the parent's props — a simpler pattern that was already the standard across the codebase.
+
+Before (0.9.1–0.9.3):
+
+```typescript
+async function buildPipeline({ pipeline, insert }: FSMPipelineProps<GlobalStore>) {
+    await insert(slotBuildPipeline);
+    pipeline.use(sceneSetViewSystem);
+}
+```
+
+After (0.9.4+):
+
+```typescript
+function buildPipeline(props: FSMPipelineProps<GlobalStore>) {
+    slotBuildPipeline({ ...props, strips, config });
+    props.pipeline.use(sceneSetViewSystem);
+}
+```
+
+Removed artifacts: `InsertArgs<T>` type, `insert` field on `PipelineProps`, `insert` closure in `Executor.create`.
+
+### 0.9.3
+
+#### Pipeline System Repetition via `.times()`
+
+`PipelineComposer` now supports a `.times(count)` method that specifies how many times the last added system should execute. The composer eagerly expands the system into `count` flat providers at composition time — no changes to the executor or pipeline runner.
+
+```typescript
+pipeline
+  .use(showWinSystem, { winLines })
+  .when(() => hasWin)
+  .times(3);
+// Equivalent to calling .use(showWinSystem, { winLines }).when(() => hasWin) three times
+```
+
+Clones share the same system reference, data, and when-predicate. Each clone receives an auto-generated debug hook (`HOOK_DESCRIPTION_1`, `HOOK_DESCRIPTION_2`, …). Repeat groups are treated as atomic units — `remove()` and `replace()` on the original hook cascade to all clones.
+
+Edge cases:
+- `times(0)` — removes the system from the pipeline (with a console warning)
+- `times(1)` — no-op (system already added once)
+- Negative or non-integer values throw an error
+
+### 0.9.2
+
+#### `NodeEntity` — `removeChild` and `setParent(null)`
+
+`INodeEntity<T>` now declares `removeChild(node)` as a first-class contract. `NodeEntity.removeChild` removes the child from the internal array, calls `setParent(null)` on the detached node, and dispatches `OnEntityRemoveChildSignal` on the next frame. `addChild` calls `removeChild` on the previous parent automatically when re-parenting a node that already belongs to another entity.
+
+`setParent` now accepts `null` in addition to `INodeEntity<T>`, allowing a node to be cleanly detached from its parent without being destroyed — a requirement for object-pool release semantics.
+
+#### Entity pool lifecycle signals
+
+Two new signals support object-pool integration without requiring polling:
+
+- **`OnEntityReleasedSignal`** — dispatched when an entity is de-registered from `EntityStorage` (i.e. returned to a pool). After this signal fires, the entity is invisible to all ECS queries and systems.
+- **`OnEntityAcquiredSignal`** — dispatched when an entity is re-registered in `EntityStorage` (i.e. retrieved from a pool). After this signal fires, the entity is fully observable by live queries and systems.
+
+#### `EntityStorage` — `releaseEntity` and `acquireEntity`
+
+Two new methods implement non-destructive pool lifecycle management directly on the storage layer:
+
+- **`releaseEntity(entity)`** — removes the entity from the internal map, unindexes all of its components from `EntityIndexator`, and dispatches `OnEntityReleasedSignal`. The entity instance is fully preserved and may be re-registered later. Semantically distinct from `removeEntity` / `destroyEntity`, which permanently invalidate the entity.
+- **`acquireEntity(entity)`** — re-registers a previously released entity: adds it back to the map, re-indexes all components, and dispatches `OnEntityAcquiredSignal`. If the entity is already registered under the same id the call is a no-op; if a different entity exists under the same id an error is thrown.
+
+#### Pool-aware `EntityQuery`
+
+`EntityQuery` now subscribes to `OnEntityReleasedSignal` and `OnEntityAcquiredSignal` in addition to the existing component-change and destroy signals:
+
+- On `released` — the entity is removed from the query's internal list immediately (treated like destroy), so no system can iterate over an idle pooled entity.
+- On `acquired` — the entity is re-evaluated against the filter; if it matches, it is re-added to the list automatically.
+
+### 0.9.1
+
+#### ~~Pipeline Composition via `insert`~~ (deprecated, removed in 0.9.4)
+
+_This feature was removed in 0.9.4. See the 0.9.4 changelog entry for the migration path._
+
+#### `clamp` utility
+
+Added a `clamp(value, min, max)` utility to `@shared/utils`. Clamps a numeric value within the `[min, max]` range using a single `Math.max` / `Math.min` expression.
+
+```typescript
+import { clamp } from '@empr/es';
+
+clamp(10, 0, 5); // 5
+clamp(-5, 0, 5); // 0
+clamp(3, 0, 5); // 3
+```
+
+---
 
 ## License
 

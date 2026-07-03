@@ -83,7 +83,7 @@ start(ticker: IUpdateTicker): void
 |-----------|-------------|
 | `ticker` | Platform scheduling strategy (`IUpdateTicker`) — browser RAF, server timer, test stub |
 
-Requires prior `init()`. Loop dispatches update / pause / resume through `UpdateLoop` (see [`core/update-loop/API_DOC.md``update-loop`).
+Requires prior `init()`. Loop dispatches update / pause / resume through `UpdateLoop` (see ](/docs/api/es/core/update-loop)).
 
 ```typescript
 const empr = new Empr();
@@ -279,7 +279,7 @@ class MyEmpr extends Empr {
 | Module | Usage |
 |--------|--------|
 | `@empr/es-lienzo` | `EmprLienzo extends Empr` |
-| `apps/slot-client`, `slot-cd-client` | `Empr` / `EmprLienzo` + `useECSBackend` / `useCDBackend` |
+| `apps/slot-client` | `Empr` / `EmprLienzo` + `useECSBackend` / `useCDBackend` |
 | `es-sistema` | `useECSBackend(app: Empr)` |
 | `es-componente` | `useCDBackend(app: Empr)` |
 | Vitest | `empr-update-loop-wiring.spec.ts` — `start` delegates to `UpdateLoop.start` |

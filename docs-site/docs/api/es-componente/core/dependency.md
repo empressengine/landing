@@ -100,7 +100,7 @@ Object.defineProperty(target, propertyKey, {
 |--------------------------|---------------|
 | `target.id?.toString()` | `undefined` on class prototype → **`'root'`** |
 
-Orchestrator-specific providers registered via `setupDependencies()` use `this.id.toString()`. Field `@Inject` getters therefore resolve **global (`root`)** unless the decoration target carries `id` (unusual). App services (`AssetsLoader`, `Scene`, …) are normally registered globally — matches [`slot-cd-client` orchestrators``initialization.orchestrator.ts``.
+Orchestrator-specific providers registered via `setupDependencies()` use `this.id.toString()`. Field `@Inject` getters therefore resolve **global (`root`)** unless the decoration target carries `id` (unusual). App services (`AssetsLoader`, `Scene`, …) are normally registered globally — matches component-driven app orchestrators.
 
 ### Example — orchestrator
 
@@ -298,7 +298,7 @@ private _config!: IConfig;
 
 | Module | Usage |
 |--------|--------|
-| `apps/slot-cd-client` | `@Inject` on orchestrators and components |
+| `component-driven app` | `@Inject` on orchestrators and components |
 | `core/orchestrator` | `getDependencyForComponent` after component lookup |
 | `bootstrap/use-cd-backend` | Global `DependencyComponentDriven` registration |
 

@@ -5,6 +5,10 @@ title: "@empr/es-sistema"
 
 # @empr/es-sistema
 
+![version](https://img.shields.io/badge/version-0.9.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6%2B-3178c6?logo=typescript&logoColor=white)
+![license](https://img.shields.io/badge/license-Proprietary-lightgrey)
+
 **Default ECS execution stack for [@empr/es](../)** — `PipelineComposer`, `Executor`, `System` / `SystemProps`, and bootstrap wiring (`useECSBackend`).
 
 This package does **not** replace the ECS kernel (entities, components, storage still come from `@empr/es`). It adds the **pipeline runtime** and a registry adapter so `FSMService`, `SignalService`, and `@empr/es-lienzo`'s `InteractionService` can share one `ExecutionRegistry`.
@@ -16,7 +20,7 @@ This package does **not** replace the ECS kernel (entities, components, storage 
 - You want classic **ECS systems as functions** composed with `PipelineComposer.use(...)`.
 - You need `Executor.create` / `run` / `pauseAll` integrated with `UpdateLoop` and the global DI container created by `Empr` or `EmprLienzo`.
 
-For **component-driven** orchestration instead, use `@empr/es-componente` — do **not** install both execution stacks in one app.
+For **component-driven** orchestration instead, use [@empr/es-componente](../es-componente/) — do **not** install both execution stacks in one app.
 
 ---
 

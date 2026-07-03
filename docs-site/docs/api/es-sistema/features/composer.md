@@ -189,7 +189,7 @@ dependency<T>(provider: Provider<T>): void
 
 Registers on `IDependency` with **`moduleId = composer.id`**.
 
-> **Scope note:** At run time, `SystemProps.inject` uses **`Pipeline.id`** (see [`core/system/API_DOC.md`](/docs/api/es-sistema/core/system)). Factory-time `PipelineProps.inject` in `Executor.create` uses **`'root'`**. Plan registrations accordingly.
+> **Scope note:** At run time, `SystemProps.inject` uses **`Pipeline.id`** (see ](/docs/api/es-sistema/core/system)). Factory-time `PipelineProps.inject` in `Executor.create` uses **`'root'`**. Plan registrations accordingly.
 
 ---
 

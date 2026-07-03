@@ -9,7 +9,7 @@ sidebar_label: "signal-service"
 
 The `signal-service` module exposes `SignalService`, a small mediator that maps **`ISignal` instances → execution flows** resolved through an `ExecutionRegistry<T>`. When a bound signal is dispatched, the service `await`s `registry.create(...)` and `registry.run(...)` so async listeners and upstream dispatchers observe the full pipeline completion.
 
-The concrete flow type (`SSFlowAliasType`) is **not hard-coded**: applications augment `ESCoreTypeRegistry` so ECS builds use `PipelineFactory` from `@empr/es-sistema`, while component-driven builds use `OrchestratorType` from `@empr/es-componente` (see reference typings under `apps/slot-client` and `apps/slot-cd-client`).
+The concrete flow type (`SSFlowAliasType`) is **not hard-coded**: applications augment `ESCoreTypeRegistry` so ECS builds use `PipelineFactory` from `@empr/es-sistema`, while component-driven builds use `OrchestratorType` from `@empr/es-componente` (see reference typings under `apps/slot-client` and `component-driven app`).
 
 ## Why this feature exists
 

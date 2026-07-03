@@ -12,6 +12,7 @@ import {
   TreeBuilder,
   TreeNode,
   AxisContainer,
+  FitContainer,
   OnViewCreatedSignal,
   OnViewDestroyedSignal,
   OnViewRemovedSignal,
@@ -23,21 +24,25 @@ import {
   IDisplayObjectOptions,
   IContainerOptions,
   IAxisContainerOptions,
+  IFitContainerOptions,
+  IDebugBoundsOptions,
   ISpriteOptions,
   ITextOptions,
   IBitmapTextOptions,
   ISpineOptions,
+  ISpineSlotAttachment,
   INineSliceOptions,
   ViewType,
 } from '@empr/es-lienzo';
 // or
-import { TreeBuilder, TreeNode, IInteraction } from './features/tree-builder';
+import { TreeBuilder, TreeNode, FitContainer, IInteraction } from './features/tree-builder';
 ```
 
 | Export | Source | Description |
 |--------|--------|-------------|
 | `TreeBuilder` | `tree-builder.ts` | Main factory: `TreeNode` → `PixiEntity` proxy in `EntityStorage` |
 | `AxisContainer` | `nodes/axis-container.ts` | Flex-like auto-layout `Container` |
+| `FitContainer` | `nodes/fit-container.ts` | Scale-to-fit `Container` (`object-fit: contain` semantics) |
 | `OnViewCreatedSignal` | `tree-builder.signals.ts` | Next frame after subtree built |
 | `OnViewDestroyedSignal` | `tree-builder.signals.ts` | Permanent destroy |
 | `OnViewRemovedSignal` | `tree-builder.signals.ts` | Detach / pool-friendly release |
@@ -45,6 +50,8 @@ import { TreeBuilder, TreeNode, IInteraction } from './features/tree-builder';
 | `IInteraction` | `tree-builder.types.ts` | `InteractionService` payload type |
 | `PixiEventType` / `PixiEventMode` | `tree-builder.types.ts` | Pointer event names / modes |
 | `I*Options` | `tree-builder.types.ts` | Per-type declarative schemas |
+| `ISpineSlotAttachment` | `tree-builder.types.ts` | Declarative slot attachment config (`slotName`, `child` `TreeNode`, `clearExisting?`) |
+| `IDebugBoundsOptions` | `tree-builder.types.ts` | Debug overlay color/alpha config (shared across nodes) |
 | `IBuilderBehaviour` / `IBuilderResult` | `tree-builder.types.ts` | Strategy contract + behaviour output |
 
 **Not exported:** `*BuilderBehaviour` classes, `AbstractBuilderBehaviour` (internal / extend in-repo only).
@@ -107,8 +114,9 @@ create(options: TreeNode, parent?: PixiEntity): PixiEntity
 |---|---|
 | **Returns** | Proxy `PixiEntity` from `EntityStorage.addEntity` |
 | **Throws** | `Unsupported type: ${options.type}` if no behaviour registered |
+| **Throws** | `[TreeBuilder] Spine "name": slot "x" not found in skeleton` for invalid slot names |
 
-**Per-node steps:**
+**Per-node steps (standard path):**
 
 1. `builder.create(options)` → `{ view, entity }`
 2. `proxyEntity = storage.addEntity(entity) as PixiEntity`
@@ -121,19 +129,30 @@ create(options: TreeNode, parent?: PixiEntity): PixiEntity
 9. Recurse `children` via `createChildren`
 10. `OnViewCreatedSignal.dispatchNextFrame(view)` — **per node** (each node in subtree)
 
+**Two-phase path (Spine with `slotAttachments`):**
+
+When `options.type === Spine` and `options.slotAttachments?.length > 0`, `create` switches to a two-phase build:
+
+1–8. Same as standard (Spine view created via `SpineBuilderBehaviour.createSpineView`, **without animation start**)
+9. For each entry in `slotAttachments`: validate slot name → `TreeBuilder.create(child)` **without parent** → resolve to `{ slotName, child: Container }`
+10. `SpineBuilderBehaviour.finalizeSpine`: apply skin → optionally `slot.setAttachment(null)` if `clearExisting` → `spine.addSlotObject` → start animation chain
+11. Spine `destroy` hook extended: `spine.removeSlotObject` for each slot before entity removal
+12. Recurse `children`; `OnViewCreatedSignal.dispatchNextFrame(view)`
+
 ### Registered `ViewType` → behaviour
 
 | `options.type` | Behaviour | Asset / notes |
 |----------------|-----------|----------------|
 | `Container` | `ContainerBuilderBehaviour` | Empty container |
 | `AxisContainer` | `AxisContainerBuilderBehaviour` | Custom layout container |
+| `FitContainer` | `FitContainerBuilderBehaviour` | Scale-to-fit container; bypasses Pixi `width`/`height` setter |
 | `Sprite` | `SpriteBuilderBehaviour` | `getAsset<Texture>(asset, bundle)` |
 | `Text` | `TextBuilderBehaviour` | `text`, `textStyle` |
 | `BitmapText` | `BitmapBuilderBehaviour` | `bitmapTextStyle`, optional `tint` |
 | `Spine` | `SpineBuilderBehaviour` | `Spine.from`; atlas `${asset}Atlas` |
 | `NineSlicePlane` | `NineSliceBuilderBehaviour` | Texture + slice insets |
 
-> **Typing note:** `TreeNode` union in `tree-builder.types.ts` lists container, axis, sprite, text, bitmap, spine — **`INineSliceOptions` is not in the union** but `NineSlicePlane` is registered. Use `View` fluent API (`ofType(NineSlicePlane, …)`) or `ofConfig` with a full `INineSliceOptions` object.
+> **Typing note:** `TreeNode` union in `tree-builder.types.ts` lists container, axis, fit, sprite, text, bitmap, spine — **`INineSliceOptions` is not in the union** but `NineSlicePlane` is registered. Use `View` fluent API (`ofType(NineSlicePlane, …)`) or `ofConfig` with a full `INineSliceOptions` object.
 
 ---
 
@@ -167,10 +186,11 @@ Common fields on all node types:
 |-----------|----------------|
 | `IContainerOptions` | `enableSort?` (reserved; sorting via `sortableChildren`) |
 | `IAxisContainerOptions` | `isVertical?`, `gap?`, `justifyContent?`, `alignItems?` |
+| `IFitContainerOptions` | `minScale?`, `maxScale?`, `justifyContent?`, `alignItems?`, `autoUpdate?`, `debugBounds?` |
 | `ISpriteOptions` | `asset`, `bundle?`, `anchor?`, `tint?` |
 | `ITextOptions` | `text`, `textStyle?`, `anchor?` |
 | `IBitmapTextOptions` | `text`, `bitmapTextStyle`, `anchor?`, `tint?` |
-| `ISpineOptions` | `asset`, `bundle?`, `key?`, `initialAnimation?`, `timeScale?`, `skin?`, `loop?` |
+| `ISpineOptions` | `asset`, `bundle?`, `key?`, `initialAnimation?`, `timeScale?`, `skin?`, `loop?`, `delay?`, `frequency?`, `tracks?`, `slotAttachments?` |
 | `INineSliceOptions` | `asset`, `bundle?`, `leftWidth`, `topHeight`, `rightWidth`, `bottomHeight`, `tint?` |
 
 ### `IInteraction` (for `InteractionService`)
@@ -219,6 +239,46 @@ Builder maps `IAxisContainerOptions` → instance fields, then `setCommonData`.
 
 ---
 
+## `FitContainer`
+
+Custom `Container` that uniformly scales its children to fit within a declared `fitWidth` × `fitHeight` area (`object-fit: contain` semantics). All children are transparently routed to an internal `contentLayer`; scale and offset are applied to that layer, keeping the outer container transform clean.
+
+| Property | Default | Role |
+|----------|---------|------|
+| `minScale` | `0.5` | Lower clamp for computed scale |
+| `maxScale` | `2` | Upper clamp for computed scale |
+| `justifyContent` | `'center'` | Horizontal alignment of scaled content in fit area |
+| `alignItems` | `'center'` | Vertical alignment of scaled content in fit area |
+| `autoUpdate` | `true` | Track child bounds changes in `updateTransform` |
+| `fitWidth` | `0` | Logical fit width (does not trigger Pixi scale semantics) |
+| `fitHeight` | `0` | Logical fit height (does not trigger Pixi scale semantics) |
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `recalculate()` | Schedule debounced fit recalculation (`waitNextFrame`) |
+| `showDebug(color?, alpha?)` | Render a semi-transparent rectangle over the fit area for visual debugging |
+| `hideDebug()` | Remove debug overlay and destroy the underlying `Graphics` object |
+
+**Scaling algorithm:** `scale = clamp(min(fitWidth / contentW, fitHeight / contentH), minScale, maxScale)`. Single-axis mode: if only one bound is set, scale is computed from that axis only.
+
+**`width` / `height` override:** Pixi's default setters rewrite `scale` to match a target size. `FitContainer` overrides them to store logical bounds (`_fitWidth`, `_fitHeight`) without affecting the container's own transform. `FitContainerBuilderBehaviour` never calls `setCommonData` for width/height — it assigns bounds via `fitWidth` / `fitHeight` directly.
+
+**`autoUpdate`:** When enabled, `updateTransform` compares cached content bounds (`_cachedBoundsW/H`) each frame; a change schedules `recalculate()`. Disable for static content to avoid the per-frame `getLocalBounds` call.
+
+**Debug overlay (`debugBounds`):** Driven either declaratively via `IFitContainerOptions.debugBounds` (builder calls `showDebug` at create time) or imperatively at runtime:
+
+```typescript
+const box = ref.item?.node.parent as FitContainer;
+box.showDebug(0x00ff88, 0.2);
+box.hideDebug();
+```
+
+Builder maps `IFitContainerOptions` → instance fields; `width`/`height` → `fitWidth`/`fitHeight`.
+
+---
+
 ## `AbstractBuilderBehaviour` (internal base)
 
 Shared logic for all behaviours:
@@ -240,9 +300,34 @@ Shared logic for all behaviours:
 Spine.from({ skeleton: options.asset, atlas: `${options.asset}Atlas` });
 ```
 
+**Standard path** (no `slotAttachments`): `create()` is a thin wrapper that calls `createSpineView` then `finalizeSpine` with an empty slot list.
+
+**Two-phase path** (when `slotAttachments` present — orchestrated by `TreeBuilder`):
+
+| Method | Responsibility |
+|--------|----------------|
+| `createSpineView(options)` | `Spine.from` + `PixiEntity` + `setCommonData`. No animation start. |
+| `finalizeSpine(options, view, entity, resolvedSlots)` | Apply `skin` → `mountSlotObjects` → start animation chain (`playTracks` or `playInitialAnimation`). Returns `resolvedSlots` for destroy cleanup. |
+
+`mountSlotObjects` behaviour per slot:
+- If `clearExisting: true` → `skeleton.findSlot(name)?.setAttachment(null)` (clears artist placeholder)
+- `spine.addSlotObject(slotName, child)`
+
 If `initialAnimation` exists in skeleton data:
 
 - `spineService.create(\`${key}:${name}\`, entity)` with optional `skin`, `timeScale`, `loop` on lane.
+
+### `ISpineSlotAttachment`
+
+```typescript
+interface ISpineSlotAttachment {
+  slotName: string;      // Spine skeleton slot name
+  child: TreeNode;       // subtree built without scene-graph parent
+  clearExisting?: boolean; // clear artist placeholder before attach; default false
+}
+```
+
+Slot children are registered in `EntityStorage` as normal `PixiEntity` instances but are **never** added to the spine's ECS or Pixi child list — they are mounted exclusively via `spine.addSlotObject`. Cleanup on destroy: `spine.removeSlotObject` per slot. Consumer API: `View.attachToSlot(slotName, callback, { clearExisting? })`.
 
 ### `SpriteBuilderBehaviour` / `NineSliceBuilderBehaviour`
 

@@ -321,7 +321,7 @@ stop   → cancel RAF, clear all state
 | Module | Usage |
 |--------|--------|
 | `apps/slot-client/.../empr.game.ts` | `new RafUpdateStrategy()` → `EmprLienzo.start(strategy)` |
-| `apps/slot-cd-client/.../empr.game.ts` | Same pattern |
+| `component-driven app bootstrap` | Same pattern |
 | `bootstrap/empr.lienzo.ts` | `UpdateLoop` hooks drive Pixi render (strategy passed from app `start`) |
 
 Application FSM and `OnUpdateSignal` pipelines consume `IUpdateLoopData` from core, not from `RafUpdateStrategy` directly.

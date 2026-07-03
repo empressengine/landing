@@ -110,7 +110,7 @@ const orchestratorCache = new OrchestratorCache();
 
 | Object | Role |
 |--------|------|
-| `ComponentDrivenExecutor` | Runs `OrchestratorType` flows ([`features/executor/API_DOC.md``executor`) |
+| `ComponentDrivenExecutor` | Runs `OrchestratorType` flows (](/docs/api/es-componente/features/executor)) |
 | `ExecutorOrchestratorRegistry` | `ExecutionRegistry` facade for FSM / signals |
 | `OrchestratorCache` | Resolves orchestrator classes + scene root |
 | `dependencyComponentDriven` | Registered in DI (see note below) |
@@ -188,7 +188,7 @@ app.dependency.inject(InteractionService).setExecutionRegistry(registry);
 app.start(rafTicker);
 ```
 
-Reference: `apps/slot-cd-client/src/app/bootstrap/empr.game.ts`.
+Reference: `component-driven app bootstrap`.
 
 ### TypeScript setup
 
@@ -201,7 +201,7 @@ declare module '@empr/es' {
 }
 ```
 
-See also `apps/slot-cd-client/src/app/types/`.
+See also app-local TypeScript augmentation files.
 
 ---
 
@@ -284,7 +284,7 @@ Call **once** per app lifetime. A second call creates new executor/cache instanc
 
 | Module | Usage |
 |--------|--------|
-| `apps/slot-cd-client` | `setupCD()` in `empr.game.ts` |
+| `component-driven app` | `setupCD()` in `empr.game.ts` |
 | `@empr/es-componente` README | Wiring guide |
 | `@empr/es-lienzo` README | Interaction + registry |
 

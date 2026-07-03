@@ -253,7 +253,7 @@ See `features/composer` and `features/executor` for builder and runtime.
 
 | Module | Usage |
 |--------|--------|
-| `apps/slot-client`, `slot-cd-client` | `*.system.ts` files |
+| `apps/slot-client` | `*.system.ts` files |
 | `features/composer` | `System`, `SystemData`, `ISystemProvider` |
 | `features/executor` | Builds and invokes `SystemProps` |
 | `pipeline-callback.system` | Generic callback system |

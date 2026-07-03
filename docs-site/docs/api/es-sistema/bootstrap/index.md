@@ -94,7 +94,7 @@ const composerRegistry = new ExecutorComposerRegistry(executor);
 
 | Object | Role |
 |--------|------|
-| `Executor` | Runs `PipelineFactory` → systems (see [`features/executor/API_DOC.md``executor`) |
+| `Executor` | Runs `PipelineFactory` → systems (see ](/docs/api/es-sistema/features/executor)) |
 | `ExecutorComposerRegistry` | `ExecutionRegistry` facade for `@empr/es` features |
 
 One `Executor` instance per `useECSBackend` call — shared by registry and (optionally) direct `inject(Executor)`.
@@ -246,8 +246,8 @@ const fsm = empr.dependency.inject(FSMService);
 
 ## Related documentation
 
-- [`executor`](/docs/api/es-sistema/features/executor) — `Executor`, `ExecutorComposerRegistry`
-- [`composer`](/docs/api/es-sistema/features/composer) — `PipelineFactory`
+- [`../features/executor/API_DOC.md``executor` — `Executor`, `ExecutorComposerRegistry`
+- [`../features/composer/API_DOC.md``composer` — `PipelineFactory`
 - [`../../../es/src/bootstrap/API_DOC.md`](/docs/api/es/bootstrap) — `Empr`, `init`, `start`
 - [`../../../es/src/core/execution-registry/API_DOC.md`](/docs/api/es/core/execution-registry) — registry contract
 - [`../../../es/src/features/fsm/API_DOC.md`](/docs/api/es/features/fsm) — `setExecutionRegistry`

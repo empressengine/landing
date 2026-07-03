@@ -83,11 +83,11 @@ function fixLinks(body) {
     .replace(/\[`(@empr\/es)`\]\(\.\.\/\.\.\/es\/README\.md\)/g, '[@empr/es](../../)')
     .replace(
       /\[`(@empr\/es-sistema)`\]\(\.\.\/es-sistema\/README\.md\)/g,
-      '[@empr/es-sistema](../es-sistema/)',
+      '[@empr/es-sistema](./es-sistema/)',
     )
     .replace(
       /\[`(@empr\/es-componente)`\]\(\.\.\/es-componente\/README\.md\)/g,
-      '[@empr/es-componente](../es-componente/)',
+      '[@empr/es-componente](./es-componente/)',
     )
     .replace(
       /\[`(@empr\/es-[^`]+)`\]\(\.\.\/[^)]+\/README\.md\)/g,

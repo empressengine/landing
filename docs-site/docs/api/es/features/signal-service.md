@@ -300,6 +300,6 @@ signalService.unsubscribe();
 | `bootstrap/empr.ts` | Constructs and registers `SignalService` |
 | `es-sistema/use-ecs-backend` | `setExecutionRegistry(composerRegistry)` |
 | `es-componente/use-cd-backend` | `setExecutionRegistry(orchestratorRegistry)` |
-| `apps/slot-client` / `slot-cd-client` | `listen(OnUpdateSignal, …)`, resizer, spin pipelines |
+| `apps/slot-client` | `listen(OnUpdateSignal, …)`, resizer, spin pipelines |
 | Tests / mocks | Extend `AbstractSignalService` |
 

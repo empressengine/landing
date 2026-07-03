@@ -330,7 +330,7 @@ interface ESCoreTypeRegistry {
 
 | Module | Usage |
 |--------|--------|
-| `apps/slot-cd-client` | Global/main-game/resizer orchestrators |
+| `component-driven app` | Global/main-game/resizer orchestrators |
 | `features/executor/execution-queue` | `OrchestratorCache.get` + `execute` |
 | `useCDBackend` | `setSceneRootSource`, DI register |
 | `@empr/es-lienzo` `InteractionService` | `OrchestratorType` flows (typed in app) |

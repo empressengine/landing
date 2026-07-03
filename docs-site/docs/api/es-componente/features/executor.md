@@ -23,7 +23,7 @@ import {
 | `ExecutionQueue` | `execution-queue.ts` | Sequential orchestrator runner |
 | `IQueueItem` | `executor.types.ts` | One queued orchestrator step |
 
-**Flow type:** `OrchestratorType<T>` from [`core/orchestrator`](/docs/api/es-componente/core/orchestrator) — orchestrator **class**, not `PipelineFactory`.
+**Flow type:** `OrchestratorType<T>` from ](/docs/api/es-componente/core/orchestrator) — orchestrator **class**, not `PipelineFactory`.
 
 **Dependencies:** `@empr/es` (`ExecutionRegistry`, `Dependency`, `nextId`), `core/orchestrator` (`Orchestrator`, `OrchestratorCache`, `OrchestratorType`).
 
@@ -226,10 +226,10 @@ Registered globally in `useCDBackend`. Typical wiring:
 ```typescript
 fsmService.setExecutionRegistry(registry);
 signalService.setExecutionRegistry(registry);
-interactionService.setExecutionRegistry(registry); // slot-cd-client pattern
+interactionService.setExecutionRegistry(registry); // component-driven pattern
 ```
 
-Augment `@empr/es` so `SSFlowAliasType` / `FSMFlowAliasType` = `OrchestratorType<...>` (see `apps/slot-cd-client` `.d.ts` files).
+Augment `@empr/es` so `SSFlowAliasType` / `FSMFlowAliasType` = `OrchestratorType<...>` (see `component-driven app` `.d.ts` files).
 
 ---
 
@@ -355,6 +355,6 @@ await queue.execute(true);
 | Module | Usage |
 |--------|--------|
 | `useCDBackend` | Creates and registers executor + registry |
-| `apps/slot-cd-client` | FSM, signals, `InteractionService` + registry |
+| `component-driven app` | FSM, signals, `InteractionService` + registry |
 | `@empr/es` `FSMService` / `SignalService` | `create` / `run` / `stop` via `ExecutionRegistry` |
 
