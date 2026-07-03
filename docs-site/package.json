@@ -7,7 +7,11 @@
     "build": "docusaurus build",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "sync:features": "node scripts/copy-features-docs.mjs",
+    "sync:api": "node scripts/copy-api-docs.mjs",
+    "generate:sidebars": "node scripts/generate-empr-sidebars.mjs",
+    "sync:docs": "pnpm sync:features && pnpm sync:api && pnpm generate:sidebars"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",

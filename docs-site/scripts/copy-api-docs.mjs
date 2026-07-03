@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { LAYER_ORDER, buildPackageSidebarItems } from './lib/empr-sidebar.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const EMPR_LIBS = path.resolve(__dirname, '../../../es-taller/libs/empr');
@@ -20,8 +21,6 @@ const PACKAGES = [
   { id: 'es-componente', srcDir: path.join(EMPR_LIBS, 'es-componente'), title: '@empr/es-componente' },
   { id: 'es-lienzo', srcDir: path.join(EMPR_LIBS, 'es-lienzo'), title: '@empr/es-lienzo' },
 ];
-
-const LAYER_ORDER = ['shared', 'core', 'features', 'widgets', 'bootstrap'];
 
 const DOCS_BASE = '/docs';
 
@@ -343,60 +342,6 @@ function copyPackage(pkg) {
   console.log(`Copied ${pkg.id}: ${apiFiles.length} API_DOC.md → ${destPkg}`);
 
   return layerFeatures;
-}
-
-/**
- * @param {string} layer
- */
-function layerSidebarLabel(layer) {
-  return layer === 'features' ? 'features (layer)' : layer;
-}
-
-/**
- * @param {string} pkgId
- * @param {Record<string, string[]>} layerFeatures
- */
-function buildPackageSidebarItems(pkgId, layerFeatures) {
-  /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig[string]} */
-  const items = [];
-
-  for (const layer of LAYER_ORDER) {
-    const features = layerFeatures[layer];
-    if (!features?.length) {
-      continue;
-    }
-
-    const docIds = features
-      .filter((f) => f !== 'index')
-      .map((f) => `api/${pkgId}/${layer}/${f}`);
-
-    if (features.includes('index') && docIds.length === 0) {
-      items.push({
-        type: 'category',
-        label: layerSidebarLabel(layer),
-        link: { type: 'doc', id: `api/${pkgId}/${layer}/index` },
-        items: [],
-      });
-      continue;
-    }
-
-    if (features.includes('index')) {
-      items.push({
-        type: 'category',
-        label: layerSidebarLabel(layer),
-        link: { type: 'doc', id: `api/${pkgId}/${layer}/index` },
-        items: docIds,
-      });
-    } else if (docIds.length > 0) {
-      items.push({
-        type: 'category',
-        label: layerSidebarLabel(layer),
-        items: docIds,
-      });
-    }
-  }
-
-  return items;
 }
 
 const filterId = process.argv[2];
